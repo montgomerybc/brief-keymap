@@ -11,14 +11,21 @@
         "Other"
     ],
     "activationEvents": [
-        "onCommand:extension.sayHello"
+        "*"
     ],
     "main": "./out/src/extension",
     "contributes": {
         "commands": [
             {
-                "command": "extension.sayHello",
-                "title": "Hello World"
+                "command": "brief.home",
+                "title": "Brief <HOME> key"
+            }
+        ],
+        "keybindings": [
+            {
+                "key": "home",
+                "command": "brief.home",
+                "when": "editorTextFocus"
             }
         ]
     },

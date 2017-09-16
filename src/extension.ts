@@ -7,21 +7,46 @@ import * as vscode from 'vscode';
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
 
-    // Use the console to output diagnostic information (console.log) and errors (console.error)
-    // This line of code will only be executed once when your extension is activated
-    console.log('Congratulations, your extension "brief-keymap" is now active!');
+    context.subscriptions.push(
+        // vscode.commands.registerCommand('brief.home', () => brief_home)
+        vscode.commands.registerCommand('brief.home', async () => { Brief['home'](); })
+    )
+}
 
-    // The command has been defined in the package.json file
-    // Now provide the implementation of the command with  registerCommand
-    // The commandId parameter must match the command field in package.json
-    let disposable = vscode.commands.registerCommand('extension.sayHello', () => {
-        // The code you place here will be executed every time your command is executed
+export class Brief {
+    public static async home(): Promise<any> {
+        console.log('Brief.home');
+        var editor = vscode.window.activeTextEditor;
+        if (!editor) {
+            return; // No open text editor
+        }
 
-        // Display a message box to the user
-        vscode.window.showInformationMessage('Hello World!');
-    });
+        var posBefore = editor.selection.active;
+        console.log(`posBefore=${JSON.stringify(editor.selection.active)}`)
 
-    context.subscriptions.push(disposable);
+        // <HOME>
+        await vscode.commands.executeCommand('cursorMove', { to: 'wrappedLineStart' });
+        var pos = editor.selection.active;
+        console.log(`<HOME>after wrappedLineStart:${JSON.stringify(editor.selection.active)}`)
+
+        if (pos.compareTo(posBefore) == 0) {
+            // <HOME><HOME>
+            await vscode.commands.executeCommand('cursorMove', { to: 'viewPortTop' });
+            console.log(`<HOME><HOME>after viewPortTop:${JSON.stringify(editor.selection.active)}`)
+            await vscode.commands.executeCommand('cursorMove', { to: 'wrappedLineStart' });
+            console.log(`<HOME><HOME>after wrappedLineStart:${JSON.stringify(editor.selection.active)}`)
+            pos = editor.selection.active;
+
+            if (pos.compareTo(posBefore) == 0) {
+                // <HOME><HOME><HOME>
+                var origin = new vscode.Position(0, 0);
+                editor.selection = new vscode.Selection(origin, origin);
+                editor.revealRange(new vscode.Range(origin, origin));
+                console.log(`<HOME><HOME><HOME>after editor.selection=new Selection(origin,origin):${JSON.stringify(editor.selection.active)}`)
+            }
+        }
+
+    }
 }
 
 // this method is called when your extension is deactivated
