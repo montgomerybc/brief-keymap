@@ -16,10 +16,6 @@
     "main": "./out/src/extension",
     "contributes": {
         "commands": [
-            {
-                "command": "brief.home",
-                "title": "Brief <HOME> key"
-            }
         ],
         "keybindings": [
             {
