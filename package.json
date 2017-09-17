@@ -109,6 +109,16 @@
                 "key": "numpad_multiply",
                 "command": "undo",
                 "when": "editorTextFocus && !editorReadonly"
+            },
+            {
+                "key": "numpad_subtract",
+                "command": "editor.action.clipboardCutAction",
+                "when": "editorTextFocus"
+            },
+            {
+                "key": "shift+delete",
+                "command": "editor.action.clipboardCutAction",
+                "when": "editorTextFocus"
             }
         ]
     },

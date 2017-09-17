@@ -97,8 +97,8 @@ This is a brief keymap for Visual Studio Code.
 |---------------------------|-----------------------|---------------------------|
 |`Ctrl` + `Ins`             |:full_moon:            |Copy                       |
 |`Numpad +`                 |:full_moon:            |Copy                       |
-|`Shift` + `Del`            |:new_moon:             |Cut                        |
-|`Numpad -`                 |:new_moon:             |Cut                        |
+|`Shift` + `Del`            |:full_moon:            |Cut                        |
+|`Numpad -`                 |:full_moon:            |Cut                        |
 |`Ins`                      |:new_moon:             |Paste                      |
 |`Ctrl` + `/`               |:new_moon:             |Toggle clipboard/scrap     |
 
