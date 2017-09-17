@@ -22,6 +22,11 @@
                 "key": "home",
                 "command": "brief.home",
                 "when": "editorTextFocus"
+            },
+            {
+                "key": "end",
+                "command": "brief.end",
+                "when": "editorTextFocus"
             }
         ]
     },
