@@ -11,6 +11,9 @@ export function activate(context: vscode.ExtensionContext) {
         vscode.commands.registerCommand('brief.end', async () => { Brief['end'](); })
     );
     context.subscriptions.push(
+        vscode.commands.registerCommand('brief.bottomoffile', async () => { Brief['moveToEndOfFile'](); })
+    );
+    context.subscriptions.push(
         vscode.commands.registerCommand('brief.gotoLine', async () => { vscode.commands.executeCommand('workbench.action.gotoLine'); })
     )
     vscode.window.onDidChangeTextEditorSelection(e => Brief.onDidChangeTextEditorSelection);
@@ -77,7 +80,7 @@ export class Brief {
 
         var hasChanged: boolean = false;
         // <END>
-        hasChanged = await this.moveToEndOfCurrentLine(editor);
+        hasChanged = await this._moveToEndOfCurrentLine(editor);
 
         if (hasChanged) {
             // Cursor changed positions, we're done
@@ -92,7 +95,7 @@ export class Brief {
 
         if (Brief._endKeyState == EndKeyState.One) {
             // <END><END>
-            hasChanged = await this.moveToEndOfCurrentViewPort(editor);
+            hasChanged = await this._moveToEndOfCurrentViewPort(editor);
 
             if (hasChanged) {
                 // Cursor changed positions, we're done
@@ -107,51 +110,27 @@ export class Brief {
         }
 
         if (Brief._endKeyState == EndKeyState.Two) {
-            await Brief.moveToEndOfFile(editor);
+            await Brief._moveToEndOfFile(editor);
             Brief._lastPos = editor.selection.active;
             Brief._endKeyState = EndKeyState.Three;
+            console.log(`${method}::<END><END><END>_endKeyState=${EndKeyState[Brief._endKeyState]};_lastPos=${JSON.stringify(Brief._lastPos)}`);
         }
-        if (1 == 1)
+    }
+
+    public static async moveToEndOfFile(): Promise<any> {
+        var method = 'Brief.moveToEndOfFile';
+        console.log(method);
+
+        var editor = vscode.window.activeTextEditor;
+        if (!editor)
             return;
-        await vscode.commands.executeCommand('cursorMove', { to: 'wrappedLineEnd' });
-        console.log(`${method}::<END>after wrappedLineEnd:${JSON.stringify(editor.selection.active)};_endKeyState=${EndKeyState[Brief._endKeyState]};_lastPos=${JSON.stringify(Brief._lastPos)}`);
+
+        await Brief._moveToEndOfFile(editor);
 
         var pos = editor.selection.active;
-        var hasChanged = !pos.isEqual(posBefore);
-
-        if (hasChanged) {
-            Brief._lastPos = pos;
-            Brief._endKeyState = EndKeyState.One;
-            console.log(`${method}::<END>_endKeyState=${EndKeyState[Brief._endKeyState]};_lastPos=${JSON.stringify(Brief._lastPos)}`);
-            return;
-        }
-
-        // <END><END>
-        posBefore = pos;
-
-        if (pos.isEqual(Brief._lastPos)) {
-            //assume we are already on the last line of the window
-            // <END><END><END>
-            var origin = new vscode.Position(editor.document.lineCount - 1, 9999);//TODO: better way to fine last line
-            editor.selection = new vscode.Selection(origin, origin);
-            editor.revealRange(new vscode.Range(origin, origin));
-            console.log(`${method}::<END><END><END>after editor.selection=new Selection(origin,origin):${JSON.stringify(editor.selection.active)};_endKeyState=${EndKeyState[Brief._endKeyState]};_lastPos=${JSON.stringify(Brief._lastPos)}`);
-            Brief._lastPos = pos;
-            Brief._endKeyState = EndKeyState.Three;
-            console.log(`${method}::<END><END><END>_endKeyState=${EndKeyState[Brief._endKeyState]};_lastPos=${JSON.stringify(Brief._lastPos)}`);
-            return;
-        }
-
-        await vscode.commands.executeCommand('cursorMove', { to: 'viewPortBottom' });
-        console.log(`${method}::<END><END>after viewPortBottom:${JSON.stringify(editor.selection.active)};_endKeyState=${EndKeyState[Brief._endKeyState]};_lastPos=${JSON.stringify(Brief._lastPos)}`);
-        await vscode.commands.executeCommand('cursorMove', { to: 'wrappedLineEnd' });
-        console.log(`${method}::<END><END>after wrappedLineEnd:${JSON.stringify(editor.selection.active)};_endKeyState=${EndKeyState[Brief._endKeyState]};_lastPos=${JSON.stringify(Brief._lastPos)}`);
-        //MEH:didn't do anything: await vscode.commands.executeCommand('revealLine', { lineNumber: editor.selection.active.line });
-        //BAD:jerky and still doesn't work: await vscode.commands.executeCommand('editorScroll', { to: 'up', by: 'line' });
 
         Brief._lastPos = pos;
-        Brief._endKeyState = EndKeyState.Two;
-        console.log(`${method}::<END><END>_endKeyState=${EndKeyState[Brief._endKeyState]};_lastPos=${JSON.stringify(Brief._lastPos)}`);
+        Brief._endKeyState = EndKeyState.Three;
     }
 
     public static onDidChangeTextEditorSelection(e: vscode.TextEditorSelectionChangeEvent) {
@@ -160,8 +139,8 @@ export class Brief {
         //TODO: reset Brief._endKeyState and Brief._lastPos?
     }
 
-    private static async moveToEndOfCurrentLine(editor: vscode.TextEditor): Promise<boolean> {
-        var method = 'Brief.moveToEndOfCurrentLine';
+    private static async _moveToEndOfCurrentLine(editor: vscode.TextEditor): Promise<boolean> {
+        var method = 'Brief._moveToEndOfCurrentLine';
 
         if (!editor)
             return;
@@ -176,8 +155,8 @@ export class Brief {
         return hasChanged;
     }
 
-    private static async moveToEndOfCurrentViewPort(editor: vscode.TextEditor): Promise<boolean> {
-        var method = 'Brief.moveToEndOfCurrentViewPort';
+    private static async _moveToEndOfCurrentViewPort(editor: vscode.TextEditor): Promise<boolean> {
+        var method = 'Brief._moveToEndOfCurrentViewPort';
 
         if (!editor)
             return;
@@ -193,19 +172,21 @@ export class Brief {
         return hasChanged;
     }
 
-    private static async moveToEndOfFile(editor: vscode.TextEditor): Promise<boolean> {
-        var method = 'Brief.moveToEndOfFile';
+    private static async _moveToEndOfFile(editor: vscode.TextEditor): Promise<boolean> {
+        var method = 'Brief._moveToEndOfFile';
 
         if (!editor)
             return;
 
         var before = editor.selection.active;
 
-        var origin = new vscode.Position(editor.document.lineCount - 1, 0);
-        editor.selection = new vscode.Selection(origin, origin);
-        await vscode.commands.executeCommand('cursorMove', { to: 'wrappedLineEnd' });
+        vscode.commands.executeCommand('cursorBottom');
 
-        editor.revealRange(new vscode.Range(editor.selection.active, editor.selection.active));
+        // var origin = new vscode.Position(editor.document.lineCount - 1, 0);
+        // editor.selection = new vscode.Selection(origin, origin);
+        // await vscode.commands.executeCommand('cursorMove', { to: 'wrappedLineEnd' });
+
+        // editor.revealRange(new vscode.Range(editor.selection.active, editor.selection.active));
 
         var after = editor.selection.active;
         var hasChanged = !before.isEqual(after);

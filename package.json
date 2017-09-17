@@ -32,6 +32,11 @@
                 "key": "alt+g",
                 "command": "brief.gotoLine",
                 "when": "editorTextFocus"
+            },
+            {
+                "key": "ctrl+pagedown",
+                "command": "brief.bottomoffile",
+                "when": "editorTextFocus"
             }
         ]
     },
