@@ -68,8 +68,8 @@ This is a brief keymap for Visual Studio Code.
 |`Ctrl` + `PgUp`            |:new_moon:             |Top of file                |
 |`Home` + `Home`            |:waning_gibbous_moon:  |Top of window              |
 |`Ctrl` + `Home`            |:new_moon:             |Top of window              |
-|`Ctrl` + `Left`            |:new_moon:             |Word left                  |
-|`Ctrl` + `Right`           |:new_moon:             |Word right                 |
+|`Ctrl` + `Left`            |:full_moon:            |Word left                  |
+|`Ctrl` + `Right`           |:full_moon:            |Word right                 |
 
 ### Editing
 | Command                   | Status                | Description               |
