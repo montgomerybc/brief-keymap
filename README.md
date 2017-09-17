@@ -113,9 +113,9 @@ This is a brief keymap for Visual Studio Code.
 |`Alt` + `T`                |:new_moon:             |Replace                    |
 |`F6`                       |:new_moon:             |Replace                    |
 |`Shift` + `F6`             |:new_moon:             |Replace                    |
-|`Alt` + `S`                |:new_moon:             |Search                     |
-|`F5`                       |:new_moon:             |Search                     |
-|`Shift` + `F5`             |:new_moon:             |Search again               |
+|`Alt` + `S`                |:poodle:               |Search                     |
+|`F5`                       |:poodle:               |Search                     |
+|`Shift` + `F5`             |:poodle:               |Search again               | *use editor.action.addSelectionToNextFindMatch instead*
 
 ### Selections/Marks
 | Command                   | Status                | Description               |

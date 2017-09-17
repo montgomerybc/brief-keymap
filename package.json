@@ -56,6 +56,40 @@
                 "when": "editorTextFocus"
             },
             {
+                "key": "alt+s",
+                "command": "actions.find"
+            },
+            {
+                "key": "alt+s",
+                "command": "editor.action.extensioneditor.hidefind",
+                "when": "extensionEditorWebviewFocus"
+            },
+            {
+                "key": "alt+s",
+                "command": "editor.action.extensioneditor.showfind",
+                "when": "extensionEditorWebviewFocus"
+            },
+            {
+                "key": "alt+s",
+                "command": "editor.action.webvieweditor.showFind",
+                "when": "webviewEditorFocus"
+            },
+            {
+                "key": "alt+s",
+                "command": "settings.action.search",
+                "when": "inSettingsEditor"
+            },
+            {
+                "key": "alt+s",
+                "command": "keybindings.editor.searchKeybindings",
+                "when": "inKeybindings && keybindingFocus"
+            },
+            {
+                "key": "alt+s",
+                "command": "workbench.action.terminal.focusFindWidget",
+                "when": "terminalFocus"
+            },
+            {
                 "key": "alt+u",
                 "command": "undo",
                 "when": "editorTextFocus && !editorReadonly"
@@ -101,6 +135,40 @@
                 "when": "editorTextFocus"
             },
             {
+                "key": "f5",
+                "command": "actions.find"
+            },
+            {
+                "key": "f5",
+                "command": "editor.action.extensioneditor.hidefind",
+                "when": "extensionEditorWebviewFocus"
+            },
+            {
+                "key": "f5",
+                "command": "editor.action.extensioneditor.showfind",
+                "when": "extensionEditorWebviewFocus"
+            },
+            {
+                "key": "f5",
+                "command": "editor.action.webvieweditor.showFind",
+                "when": "webviewEditorFocus"
+            },
+            {
+                "key": "f5",
+                "command": "settings.action.search",
+                "when": "inSettingsEditor"
+            },
+            {
+                "key": "f5",
+                "command": "keybindings.editor.searchKeybindings",
+                "when": "inKeybindings && keybindingFocus"
+            },
+            {
+                "key": "f5",
+                "command": "workbench.action.terminal.focusFindWidget",
+                "when": "terminalFocus"
+            },
+            {
                 "key": "insert",
                 "command": "editor.action.clipboardPasteAction",
                 "when": "editorTextFocus && !editorReadonly"
@@ -124,6 +192,11 @@
                 "key": "shift+delete",
                 "command": "editor.action.clipboardCutAction",
                 "when": "editorTextFocus && !editorReadonly"
+            },
+            {
+                "key": "shift+f5",
+                "command": "editor.action.nextMatchFindAction",
+                "when": "editorFocus"
             }
         ]
     },
