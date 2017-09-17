@@ -49,7 +49,7 @@
             },
             {
                 "key": "ctrl+pagedown",
-                "command": "brief.bottomoffile",
+                "command": "brief.moveToEndOfFile",
                 "when": "editorTextFocus"
             }
         ]

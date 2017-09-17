@@ -4,27 +4,27 @@ import * as vscode from 'vscode';
 
 export function activate(context: vscode.ExtensionContext) {
 
-    context.subscriptions.push(
-        vscode.commands.registerCommand('brief.home', async () => { Brief['home'](); })
-    );
-    context.subscriptions.push(
-        vscode.commands.registerCommand('brief.end', async () => { Brief['end'](); })
-    );
-    context.subscriptions.push(
-        vscode.commands.registerCommand('brief.bottomoffile', async () => { Brief['moveToEndOfFile'](); })
-    );
-    context.subscriptions.push(
-        vscode.commands.registerCommand('brief.gotoLine', async () => { vscode.commands.executeCommand('workbench.action.gotoLine'); })
-    );
-    context.subscriptions.push(
-        vscode.commands.registerCommand('brief.openFile', async () => { vscode.commands.executeCommand('workbench.action.files.openFile'); })
-    );
-    context.subscriptions.push(
-        vscode.commands.registerCommand('brief.save', async () => { vscode.commands.executeCommand('workbench.action.files.save'); })
-    );
-    context.subscriptions.push(
-        vscode.commands.registerCommand('brief.saveAs', async () => { vscode.commands.executeCommand('workbench.action.files.saveAs'); })
-    );
+    let implementedMethods: string[] = [
+        'end',
+        'home',
+    ];
+
+    let mappedMethods: [string, string][] = [
+        ['gotoLine', 'workbench.action.gotoLine'],
+        ['openFile', 'workbench.action.files.openFile'],
+        ['save', 'workbench.action.files.save'],
+        ['saveAs', 'workbench.action.files.saveAs'],
+    ];
+
+    for (let method of implementedMethods) {
+        context.subscriptions.push(
+            vscode.commands.registerCommand(`brief.${method}`, async () => { Brief[method](); })
+        );
+    }
+
+    for (let [local, method] of mappedMethods) {
+        vscode.commands.registerCommand(`brief.${local}`, async () => { vscode.commands.executeCommand(method); })
+    }
 
     vscode.window.onDidChangeTextEditorSelection(e => Brief.onDidChangeTextEditorSelection);
 }
