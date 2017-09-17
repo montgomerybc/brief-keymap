@@ -118,12 +118,12 @@
             {
                 "key": "numpad_subtract",
                 "command": "editor.action.clipboardCutAction",
-                "when": "editorTextFocus"
+                "when": "editorTextFocus && !editorReadonly"
             },
             {
                 "key": "shift+delete",
                 "command": "editor.action.clipboardCutAction",
-                "when": "editorTextFocus"
+                "when": "editorTextFocus && !editorReadonly"
             }
         ]
     },
