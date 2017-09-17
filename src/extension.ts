@@ -22,6 +22,9 @@ export function activate(context: vscode.ExtensionContext) {
     context.subscriptions.push(
         vscode.commands.registerCommand('brief.save', async () => { vscode.commands.executeCommand('workbench.action.files.save'); })
     );
+    context.subscriptions.push(
+        vscode.commands.registerCommand('brief.saveAs', async () => { vscode.commands.executeCommand('workbench.action.files.saveAs'); })
+    );
 
     vscode.window.onDidChangeTextEditorSelection(e => Brief.onDidChangeTextEditorSelection);
 }
