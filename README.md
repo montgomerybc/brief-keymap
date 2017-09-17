@@ -131,8 +131,8 @@ This is a brief keymap for Visual Studio Code.
 ### System
 | Command                   | Status                | Description               |
 |---------------------------|-----------------------|---------------------------|
-|`F10`                      |:new_moon:             |API interface              |
-|`Ctrl` + `W`               |:new_moon:             |Backups on/off             |
+|`F10`                      |:see_no_evil:          |API interface              |
+|`Ctrl` + `W`               |:see_no_evil:          |Backups on/off             |
 |`Alt` + `F10`              |:new_moon:             |Compile buffer             |
 |`Ctrl` + `G`               |:new_moon:             |Display routines           |
 |`Shift` + `Enter`          |:new_moon:             |Expand/Collapse            |
