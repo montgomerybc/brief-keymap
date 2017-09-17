@@ -33,11 +33,11 @@ This is a brief keymap for Visual Studio Code.
 |`Alt` + `F`                |:new_moon:             |Display filename           |
 |`Alt` + `B`                |:new_moon:             |List of buffers            |
 |`Alt` + `N`                |:new_moon:             |Next buffer                |
-|`Alt` + `E`                |:new_moon:             |Open file                  |
+|`Alt` + `E`                |:poodle:               |Open file                  |
 |`Alt` + `-`                |:new_moon:             |Previous buffer            |
 |`Alt` + `P`                |:new_moon:             |Print buffer               |
 |`Alt` + `R`                |:new_moon:             |Read file into buffer      |
-|`Alt` + `W`                |:new_moon:             |Save file                  |
+|`Alt` + `W`                |:full_moon:            |Save file                  |
 |`Alt` + `W`                |:new_moon:             |Write selection to file    |
 
 ### Cursor Motion/Scrolling
@@ -45,7 +45,7 @@ This is a brief keymap for Visual Studio Code.
 |---------------------------|-----------------------|---------------------------|
 |`Home`                     |:waning_gibbous_moon:  |Beginning of line          |
 |`End` + `End` + `End`      |:last_quarter_moon:    |Bottom of file             |
-|`Ctrl` + `PgDn`            |:new_moon:             |Bottom of file             |
+|`Ctrl` + `PgDn`            |:full_moon:            |Bottom of file             |
 |`End` + `End`              |:last_quarter_moon:    |Bottom of window           |
 |`Ctrl` + `End`             |:new_moon:             |Bottom of window           |
 |`Left`                     |:full_moon:            |Column left                |
