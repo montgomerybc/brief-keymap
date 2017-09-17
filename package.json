@@ -15,8 +15,7 @@
     ],
     "main": "./out/src/extension",
     "contributes": {
-        "commands": [
-        ],
+        "commands": [],
         "keybindings": [
             {
                 "key": "home",
@@ -46,6 +45,16 @@
                 "key": "alt+w",
                 "command": "brief.save",
                 "when": "editorTextFocus"
+            },
+            {
+                "key": "ctrl+-",
+                "command": "workbench.action.closeActiveEditor",
+                "when": "editorIsOpen"
+            },
+            {
+                "key": "ctrl+-",
+                "command": "workbench.action.closeWindow",
+                "when": "!editorIsOpen"
             },
             {
                 "key": "ctrl+pagedown",

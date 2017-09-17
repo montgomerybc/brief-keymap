@@ -29,7 +29,7 @@ This is a brief keymap for Visual Studio Code.
 | Command                   | Status                | Description               |
 |---------------------------|-----------------------|---------------------------|
 |`Alt` + `O`                |:poodle:               |Change output name         |
-|`Ctrl` + `-`               |:new_moon:             |Close Buffer               |
+|`Ctrl` + `-`               |:full_moon:            |Close Buffer               |
 |`Alt` + `F`                |:new_moon:             |Display filename           |
 |`Alt` + `B`                |:new_moon:             |List of buffers            |
 |`Alt` + `N`                |:new_moon:             |Next buffer                |
