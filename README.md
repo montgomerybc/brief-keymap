@@ -78,7 +78,7 @@ This is a brief keymap for Visual Studio Code.
 |`Bksp`                     |:full_moon:            |Delete character to left   |
 |`Alt` + `D`                |:full_moon:            |Delete line                |
 |`Alt` + `K`                |:new_moon:             |Delete to end of line      |
-|`Alt` + `Bksp`             |:new_moon:             |Delete next word           |
+|`Alt` + `Bksp`             |:full_moon:            |Delete next word           |
 |`Ctrl` + `Bksp`            |:full_moon:            |Delete previous word       |
 |`Tab`                      |:full_moon:            |Indent block by tab        |
 |`Space`                    |:new_moon:             |Indent block by space      |
