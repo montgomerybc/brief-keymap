@@ -28,6 +28,11 @@
                 "when": "editorTextFocus"
             },
             {
+                "key": "alt+d",
+                "command": "editor.action.deleteLines",
+                "when": "editorTextFocus && !editorReadonly"
+            },
+            {
                 "key": "alt+e",
                 "command": "workbench.action.files.openFile"
             },
