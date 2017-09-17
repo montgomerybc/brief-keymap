@@ -89,16 +89,16 @@ This is a brief keymap for Visual Studio Code.
 |`Ctrl` + `>`               |:new_moon:             |Slide-in Prompt            |
 |`Ctrl` + `<`               |:new_moon:             |Slide-out Prompt           |
 |`Alt` + `U`                |:full_moon:            |Undo                       |
-|`Numpad-*`                 |:full_moon:            |Undo                       |
+|`Numpad *`                 |:full_moon:            |Undo                       |
 |`Shift` + `Tab`            |:full_moon:            |Unindent block by tab      |
 
 ### Scrap/Clipboard
 | Command                   | Status                | Description               |
 |---------------------------|-----------------------|---------------------------|
-|`Ctrl` + `Ins`             |:new_moon:             |Copy                       |
-|`Numpad+`                  |:new_moon:             |Copy                       |
+|`Ctrl` + `Ins`             |:full_moon:            |Copy                       |
+|`Numpad +`                 |:full_moon:            |Copy                       |
 |`Shift` + `Del`            |:new_moon:             |Cut                        |
-|`Numpad-`                  |:new_moon:             |Cut                        |
+|`Numpad -`                 |:new_moon:             |Cut                        |
 |`Ins`                      |:new_moon:             |Paste                      |
 |`Ctrl` + `/`               |:new_moon:             |Toggle clipboard/scrap     |
 

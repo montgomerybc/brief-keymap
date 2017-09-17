@@ -86,6 +86,11 @@
                 "when": "editorTextFocus && !editorReadonly"
             },
             {
+                "key": "ctrl+insert",
+                "command": "editor.action.clipboardCopyAction",
+                "when": "editorTextFocus"
+            },
+            {
                 "key": "ctrl+k",
                 "command": "deleteAllLeft",
                 "when": "editorTextFocus && !editorReadonly"
@@ -93,6 +98,11 @@
             {
                 "key": "ctrl+pagedown",
                 "command": "brief.moveToEndOfFile",
+                "when": "editorTextFocus"
+            },
+            {
+                "key": "numpad_add",
+                "command": "editor.action.clipboardCopyAction",
                 "when": "editorTextFocus"
             },
             {
