@@ -8,18 +8,20 @@ This is a brief keymap for Visual Studio Code.
 
 ## Commands By Category
 :full_moon: - fully done
+
 :waning_gibbous_moon:
+
 :last_quarter_moon:
+
 :waning_crescent_moon:
+
 :new_moon: - not done
 
-:bell: - done in a "VS Code" specific way
-
-:warning: - partially done
+:poodle: - done in a "VS Code" specific way
 
 :construction: - work in progress
 
-:thumbsdown: - not applicable/not necessary
+:see_no_evil: - not applicable/not necessary
 
 :no_entry: - not possible at this time
 
@@ -46,19 +48,19 @@ This is a brief keymap for Visual Studio Code.
 |`Ctrl` + `PgDn`            |:new_moon:             |Bottom of file             |
 |`End` + `End`              |:last_quarter_moon:    |Bottom of window           |
 |`Ctrl` + `End`             |:new_moon:             |Bottom of window           |
-|`Left`                     |:new_moon:             |Column left                |
-|`Right`                    |:new_moon:             |Column right               |
+|`Left`                     |:full_moon:            |Column left                |
+|`Right`                    |:full_moon:            |Column right               |
 |`End`                      |:last_quarter_moon:    |End of line                |
 |`Alt` + `G`                |:full_moon:            |Go to line (prompt)        |
 |`Alt` + `J`                |:new_moon:             |Go to mark (prompt)        |
 |`Shift` + `Home`           |:new_moon:             |Left window edge           |
-|`Down`                     |:new_moon:             |Line down                  |
-|`Up`                       |:new_moon:             |Line up                    |
+|`Down`                     |:full_moon:            |Line down                  |
+|`Up`                       |:full_moon:            |Line up                    |
 |`Ctrl` + `B`               |:new_moon:             |Make bottom of window      |
 |`Ctrl` + `T`               |:new_moon:             |Make top of window         |
 |`Ctrl` + `C`               |:new_moon:             |Make center of window      |
-|`PgDn`                     |:new_moon:             |Page down                  |
-|`PgUp`                     |:new_moon:             |Page up                    |
+|`PgDn`                     |:full_moon:            |Page down                  |
+|`PgUp`                     |:full_moon:            |Page up                    |
 |`Shift` + `End`            |:new_moon:             |Right window edge          |
 |`Ctrl` + `D`               |:new_moon:             |Scroll down 1 line         |
 |`Ctrl` + `U`               |:new_moon:             |Scroll up 1 line           |
@@ -72,13 +74,13 @@ This is a brief keymap for Visual Studio Code.
 ### Editing
 | Command                   | Status                | Description               |
 |---------------------------|-----------------------|---------------------------|
-|`Del`                      |:new_moon:             |Delete character           |
-|`Bksp`                     |:new_moon:             |Delete character to left   |
+|`Del`                      |:full_moon:            |Delete character           |
+|`Bksp`                     |:full_moon:            |Delete character to left   |
 |`Alt` + `D`                |:new_moon:             |Delete line                |
 |`Alt` + `K`                |:new_moon:             |Delete to end of line      |
 |`Alt` + `Bksp`             |:new_moon:             |Delete next word           |
-|`Ctrl` + `Bksp`            |:new_moon:             |Delete previous word       |
-|`Tab`                      |:new_moon:             |Indent block by tab        |
+|`Ctrl` + `Bksp`            |:full_moon:            |Delete previous word       |
+|`Tab`                      |:full_moon:            |Indent block by tab        |
 |`Space`                    |:new_moon:             |Indent block by space      |
 |`Ctrl` + `Enter`           |:new_moon:             |Insert line below          |
 |`Alt` + `Q`                |:new_moon:             |Insert next literally      |
@@ -137,7 +139,7 @@ This is a brief keymap for Visual Studio Code.
 |`Ctrl` + `P`               |:new_moon:             |Show errors                |
 |`Alt` + `H`                |:new_moon:             |Help                       |
 |`Alt` + `I`                |:new_moon:             |Insert mode on/off         |
-|`F9`                       |:thumbsdown:           |Load DLL                   |
+|`F9`                       |:see_no_evil:          |Load DLL                   |
 |`Alt` + `F7`               |:new_moon:             |Load recording file        |
 |`F8`                       |:new_moon:             |Playback keystrokes        |
 |`Alt` + `P`                |:new_moon:             |Print buffer               |
@@ -148,7 +150,7 @@ This is a brief keymap for Visual Studio Code.
 |`Ctrl` + `R`               |:new_moon:             |Repeat key action          |
 |`Alt` + `Z`                |:new_moon:             |Shell                      |
 |`Esc`                      |:new_moon:             |Text Mode                  |
-|`Shift` + `F9`             |:thumbsdown:           |Unload DLL                 |
+|`Shift` + `F9`             |:see_no_evil:          |Unload DLL                 |
 |`Alt` + `F8`               |:new_moon:             |Write recording file       |
 
 ### Window
