@@ -56,6 +56,11 @@
                 "when": "editorTextFocus"
             },
             {
+                "key": "alt+y",
+                "command": "redo",
+                "when": "editorTextFocus && !editorReadonly"
+            },
+            {
                 "key": "ctrl+-",
                 "command": "workbench.action.closeActiveEditor",
                 "when": "editorIsOpen"

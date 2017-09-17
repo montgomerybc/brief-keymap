@@ -84,7 +84,7 @@ This is a brief keymap for Visual Studio Code.
 |`Space`                    |:new_moon:             |Indent block by space      |
 |`Ctrl` + `Enter`           |:new_moon:             |Insert line below          |
 |`Alt` + `Q`                |:new_moon:             |Insert next literally      |
-|`Alt` + `Y`                |:new_moon:             |Redo                       |
+|`Alt` + `Y`                |:full_moon:            |Redo                       |
 |`Ctrl` + `>`               |:new_moon:             |Slide-in Prompt            |
 |`Ctrl` + `<`               |:new_moon:             |Slide-out Prompt           |
 |`Alt` + `U`                |:full_moon:            |Undo                       |
