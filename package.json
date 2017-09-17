@@ -101,6 +101,11 @@
                 "when": "editorTextFocus"
             },
             {
+                "key": "insert",
+                "command": "editor.action.clipboardPasteAction",
+                "when": "editorTextFocus && !editorReadonly"
+            },
+            {
                 "key": "numpad_add",
                 "command": "editor.action.clipboardCopyAction",
                 "when": "editorTextFocus"

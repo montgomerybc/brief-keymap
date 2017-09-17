@@ -99,7 +99,7 @@ This is a brief keymap for Visual Studio Code.
 |`Numpad +`                 |:full_moon:            |Copy                       |
 |`Shift` + `Del`            |:full_moon:            |Cut                        |
 |`Numpad -`                 |:full_moon:            |Cut                        |
-|`Ins`                      |:new_moon:             |Paste                      |
+|`Ins`                      |:full_moon:            |Paste                      |
 |`Ctrl` + `/`               |:new_moon:             |Toggle clipboard/scrap     |
 
 ### Search/Replace
