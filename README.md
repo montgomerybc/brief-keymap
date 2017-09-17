@@ -83,14 +83,14 @@ This is a brief keymap for Visual Studio Code.
 |`Ctrl` + `Bksp`            |:full_moon:            |Delete previous word       |
 |`Tab`                      |:full_moon:            |Indent block by tab        |
 |`Space`                    |:new_moon:             |Indent block by space      |
-|`Ctrl` + `Enter`           |:new_moon:             |Insert line below          |
+|`Ctrl` + `Enter`           |:full_moon:            |Insert line below          |
 |`Alt` + `Q`                |:new_moon:             |Insert next literally      |
 |`Alt` + `Y`                |:full_moon:            |Redo                       |
 |`Ctrl` + `>`               |:new_moon:             |Slide-in Prompt            |
 |`Ctrl` + `<`               |:new_moon:             |Slide-out Prompt           |
 |`Alt` + `U`                |:full_moon:            |Undo                       |
 |`Numpad-*`                 |:full_moon:            |Undo                       |
-|`Shift` + `Tab`            |:new_moon:             |Unindent block by tab      |
+|`Shift` + `Tab`            |:full_moon:            |Unindent block by tab      |
 
 ### Scrap/Clipboard
 | Command                   | Status                | Description               |
