@@ -10,6 +10,9 @@ export function activate(context: vscode.ExtensionContext) {
     context.subscriptions.push(
         vscode.commands.registerCommand('brief.end', async () => { Brief['end'](); })
     );
+    context.subscriptions.push(
+        vscode.commands.registerCommand('brief.gotoLine', async () => { vscode.commands.executeCommand('workbench.action.gotoLine'); })
+    )
     vscode.window.onDidChangeTextEditorSelection(e => Brief.onDidChangeTextEditorSelection);
 }
 

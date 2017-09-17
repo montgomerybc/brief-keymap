@@ -49,7 +49,7 @@ This is a brief keymap for Visual Studio Code.
 |`Left`                     |:new_moon:             |Column left                |
 |`Right`                    |:new_moon:             |Column right               |
 |`End`                      |:last_quarter_moon:    |End of line                |
-|`Alt` + `G`                |:new_moon:             |Go to line (prompt)        |
+|`Alt` + `G`                |:full_moon:            |Go to line (prompt)        |
 |`Alt` + `J`                |:new_moon:             |Go to mark (prompt)        |
 |`Shift` + `Home`           |:new_moon:             |Left window edge           |
 |`Down`                     |:new_moon:             |Line down                  |

@@ -27,6 +27,11 @@
                 "key": "end",
                 "command": "brief.end",
                 "when": "editorTextFocus"
+            },
+            {
+                "key": "alt+g",
+                "command": "brief.gotoLine",
+                "when": "editorTextFocus"
             }
         ]
     },
