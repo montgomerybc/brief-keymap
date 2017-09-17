@@ -87,8 +87,8 @@ This is a brief keymap for Visual Studio Code.
 |`Alt` + `Y`                |:new_moon:             |Redo                       |
 |`Ctrl` + `>`               |:new_moon:             |Slide-in Prompt            |
 |`Ctrl` + `<`               |:new_moon:             |Slide-out Prompt           |
-|`Alt` + `U`                |:new_moon:             |Undo                       |
-|`Numpad*`                  |:new_moon:             |Undo                       |
+|`Alt` + `U`                |:full_moon:            |Undo                       |
+|`Numpad-*`                 |:full_moon:            |Undo                       |
 |`Shift` + `Tab`            |:new_moon:             |Unindent block by tab      |
 
 ### Scrap/Clipboard

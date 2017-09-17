@@ -46,6 +46,11 @@
                 "when": "editorTextFocus"
             },
             {
+                "key": "alt+u",
+                "command": "undo",
+                "when": "editorTextFocus && !editorReadonly"
+            },
+            {
                 "key": "alt+w",
                 "command": "workbench.action.files.save",
                 "when": "editorTextFocus"
@@ -64,6 +69,11 @@
                 "key": "ctrl+pagedown",
                 "command": "brief.moveToEndOfFile",
                 "when": "editorTextFocus"
+            },
+            {
+                "key": "numpad_multiply",
+                "command": "undo",
+                "when": "editorTextFocus && !editorReadonly"
             }
         ]
     },
