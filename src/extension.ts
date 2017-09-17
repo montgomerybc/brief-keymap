@@ -15,7 +15,11 @@ export function activate(context: vscode.ExtensionContext) {
     );
     context.subscriptions.push(
         vscode.commands.registerCommand('brief.gotoLine', async () => { vscode.commands.executeCommand('workbench.action.gotoLine'); })
-    )
+    );
+    context.subscriptions.push(
+        vscode.commands.registerCommand('brief.openFile', async () => { vscode.commands.executeCommand('workbench.action.files.openFile'); })
+    );
+
     vscode.window.onDidChangeTextEditorSelection(e => Brief.onDidChangeTextEditorSelection);
 }
 

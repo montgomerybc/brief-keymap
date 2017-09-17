@@ -29,6 +29,10 @@
                 "when": "editorTextFocus"
             },
             {
+                "key": "alt+e",
+                "command": "brief.openFile"
+            },
+            {
                 "key": "alt+g",
                 "command": "brief.gotoLine",
                 "when": "editorTextFocus"
