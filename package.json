@@ -29,21 +29,20 @@
             },
             {
                 "key": "alt+e",
-                "command": "brief.openFile"
+                "command": "workbench.action.files.openFile"
             },
             {
                 "key": "alt+g",
-                "command": "brief.gotoLine",
-                "when": "editorTextFocus"
+                "command": "workbench.action.gotoLine"
             },
             {
                 "key": "alt+o",
-                "command": "brief.saveAs",
+                "command": "workbench.action.files.saveAs",
                 "when": "editorTextFocus"
             },
             {
                 "key": "alt+w",
-                "command": "brief.save",
+                "command": "workbench.action.files.save",
                 "when": "editorTextFocus"
             },
             {

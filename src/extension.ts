@@ -10,10 +10,7 @@ export function activate(context: vscode.ExtensionContext) {
     ];
 
     let mappedMethods: [string, string][] = [
-        ['gotoLine', 'workbench.action.gotoLine'],
-        ['openFile', 'workbench.action.files.openFile'],
-        ['save', 'workbench.action.files.save'],
-        ['saveAs', 'workbench.action.files.saveAs'],
+        //['save', 'workbench.action.files.save'],
     ];
 
     for (let method of implementedMethods) {
