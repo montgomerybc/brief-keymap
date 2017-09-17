@@ -19,6 +19,9 @@ export function activate(context: vscode.ExtensionContext) {
     context.subscriptions.push(
         vscode.commands.registerCommand('brief.openFile', async () => { vscode.commands.executeCommand('workbench.action.files.openFile'); })
     );
+    context.subscriptions.push(
+        vscode.commands.registerCommand('brief.save', async () => { vscode.commands.executeCommand('workbench.action.files.save'); })
+    );
 
     vscode.window.onDidChangeTextEditorSelection(e => Brief.onDidChangeTextEditorSelection);
 }

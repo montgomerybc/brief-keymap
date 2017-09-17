@@ -38,6 +38,11 @@
                 "when": "editorTextFocus"
             },
             {
+                "key": "alt+w",
+                "command": "brief.save",
+                "when": "editorTextFocus"
+            },
+            {
                 "key": "ctrl+pagedown",
                 "command": "brief.bottomoffile",
                 "when": "editorTextFocus"
