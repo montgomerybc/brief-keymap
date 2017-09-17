@@ -110,12 +110,12 @@ This is a brief keymap for Visual Studio Code.
 |`Ctrl` + `Shift` + `Q`     |:new_moon:             |Quick search for word      |
 |`Ctrl` + `Shift` + `M`     |:new_moon:             |Multi-buffer Search again  |
 |`Ctrl` + `F6`              |:new_moon:             |Regular expressions on/off |
-|`Alt` + `T`                |:new_moon:             |Replace                    |
-|`F6`                       |:new_moon:             |Replace                    |
-|`Shift` + `F6`             |:new_moon:             |Replace                    |
+|`Alt` + `T`                |:poodle:               |Replace                    |
+|`F6`                       |:poodle:               |Replace                    |
+|`Shift` + `F6`             |:poodle:               |Replace                    |
 |`Alt` + `S`                |:poodle:               |Search                     |
 |`F5`                       |:poodle:               |Search                     |
-|`Shift` + `F5`             |:poodle:               |Search again               | *use editor.action.addSelectionToNextFindMatch instead*
+|`Shift` + `F5`             |:poodle:               |Search again               | *use editor.action.addSelectionToNextFindMatch instead*|
 
 ### Selections/Marks
 | Command                   | Status                | Description               |

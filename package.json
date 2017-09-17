@@ -90,6 +90,10 @@
                 "when": "terminalFocus"
             },
             {
+                "key": "alt+t",
+                "command": "editor.action.startFindReplaceAction"
+            },
+            {
                 "key": "alt+u",
                 "command": "undo",
                 "when": "editorTextFocus && !editorReadonly"
@@ -169,6 +173,10 @@
                 "when": "terminalFocus"
             },
             {
+                "key": "f6",
+                "command": "editor.action.startFindReplaceAction"
+            },
+            {
                 "key": "insert",
                 "command": "editor.action.clipboardPasteAction",
                 "when": "editorTextFocus && !editorReadonly"
@@ -197,6 +205,11 @@
                 "key": "shift+f5",
                 "command": "editor.action.nextMatchFindAction",
                 "when": "editorFocus"
+            },
+            {
+                "key": "shift+f6",
+                "command": "editor.action.replaceOne",
+                "when": "editorFocus && findWidgetVisible"
             }
         ]
     },
