@@ -46,6 +46,11 @@
                 "command": "workbench.action.gotoLine"
             },
             {
+                "key": "alt+k",
+                "command": "deleteAllRight",
+                "when": "editorTextFocus && !editorReadonly"
+            },
+            {
                 "key": "alt+o",
                 "command": "workbench.action.files.saveAs",
                 "when": "editorTextFocus"
@@ -74,6 +79,11 @@
                 "key": "ctrl+-",
                 "command": "workbench.action.closeWindow",
                 "when": "!editorIsOpen"
+            },
+            {
+                "key": "ctrl+k",
+                "command": "deleteAllLeft",
+                "when": "editorTextFocus && !editorReadonly"
             },
             {
                 "key": "ctrl+pagedown",
