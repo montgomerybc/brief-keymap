@@ -124,6 +124,10 @@
                 "when": "editorTextFocus && !editorReadonly"
             },
             {
+                "key": "ctrl+g",
+                "command": "workbench.action.gotoSymbol"
+            },
+            {
                 "key": "ctrl+insert",
                 "command": "editor.action.clipboardCopyAction",
                 "when": "editorTextFocus"
