@@ -82,7 +82,7 @@ This is a brief keymap for Visual Studio Code.
 |`Alt` + `Bksp`             |:full_moon:            |Delete next word           |
 |`Ctrl` + `Bksp`            |:full_moon:            |Delete previous word       |
 |`Tab`                      |:full_moon:            |Indent block by tab        |
-|`Space`                    |:construction:         |Indent block by space      |
+|`Space`                    |:full_moon:            |Indent block by space      |
 |`Ctrl` + `Enter`           |:full_moon:            |Insert line below          |
 |`Alt` + `Q`                |:new_moon:             |Insert next literally      |
 |`Alt` + `Y`                |:full_moon:            |Redo                       |
