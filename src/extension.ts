@@ -1,6 +1,7 @@
 'use strict';
 
 import * as vscode from 'vscode';
+import { SelectionHelper } from "./selection-helper";
 
 export function activate(context: vscode.ExtensionContext) {
 
@@ -55,11 +56,11 @@ export class Brief {
             if (selection.isSingleLine) {
                 let lineNum = selection.start.line;
                 let line = editor.document.lineAt(lineNum);
+
                 if (line.range.isEqual(new vscode.Range(selection.start, selection.end))) {
                     Brief.prefixLineWith(lineNum, ' ', edit);
-                    selection = new vscode.Selection(
-                        lineNum, 0,
-                        lineNum, selection.end.character + 1);
+
+                    selection = SelectionHelper.Extend(selection, { endCharacterFn: c => c + 1 });
                 }
             } else {
                 for (let lineNum = selection.start.line; lineNum < selection.end.line; lineNum++) {
@@ -68,9 +69,7 @@ export class Brief {
                 if (selection.end.character > 0) {
                     Brief.prefixLineWith(selection.end.line, ' ', edit);
                 }
-                selection = new vscode.Selection(
-                    selection.start.line, selection.start.character == 0 ? 0 : selection.start.character + 1,
-                    selection.end.line, selection.end.character == 0 ? 0 : selection.end.character + 1);
+                selection = SelectionHelper.Extend(selection, { startCharacterFn: c => c == 0 ? 0 : c + 1, endCharacterFn: c => c == 0 ? 0 : c + 1 });
             }
 
             newSelections.push(selection);
