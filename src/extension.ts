@@ -45,34 +45,35 @@ export class Brief {
         var edit = new vscode.WorkspaceEdit();
         var newSelections = new Array<vscode.Selection>();
 
+        //TODO: what about tabs? do they affect what we have to do for adjusting the selection?
         for (let index in editor.selections) {
             let selection = editor.selections[index];
 
+            //console.log(`${method} !selection.isSingleLine. selection=${JSON.stringify(selection)}. isSingleLine=${selection.isSingleLine}`)
+
+            //TODO: don't invert selection
             if (selection.isSingleLine) {
-                console.log(`${method} selection.isSingleLine. selection=${JSON.stringify(selection)}`);
                 let lineNum = selection.start.line;
                 let line = editor.document.lineAt(lineNum);
                 if (line.range.isEqual(new vscode.Range(selection.start, selection.end))) {
-                    console.log(`${method} entire line selected`);
-                    let startOfLine = new vscode.Position(lineNum, 0);
-                    edit.insert(vscode.window.activeTextEditor.document.uri, startOfLine, ' ');
-                    newSelections.push(new vscode.Selection(startOfLine, new vscode.Position(lineNum, selection.end.character + 1)));//TODO: what about tabs?
-                } else {
-                    newSelections.push(selection);
+                    Brief.prefixLineWith(lineNum, ' ', edit);
+                    selection = new vscode.Selection(
+                        lineNum, 0,
+                        lineNum, selection.end.character + 1);
                 }
             } else {
-                console.log(`${method} !selection.isSingleLine. selection=${JSON.stringify(selection)}`)
-
                 for (let lineNum = selection.start.line; lineNum < selection.end.line; lineNum++) {
-                    let startOfLine = new vscode.Position(lineNum, 0);
-                    edit.insert(vscode.window.activeTextEditor.document.uri, startOfLine, ' ');
+                    Brief.prefixLineWith(lineNum, ' ', edit);
                 }
                 if (selection.end.character > 0) {
-                    let startOfLine = new vscode.Position(selection.end.line, 0);
-                    edit.insert(vscode.window.activeTextEditor.document.uri, startOfLine, ' ');
+                    Brief.prefixLineWith(selection.end.line, ' ', edit);
                 }
-                newSelections.push(selection);
+                selection = new vscode.Selection(
+                    selection.start.line, selection.start.character == 0 ? 0 : selection.start.character + 1,
+                    selection.end.line, selection.end.character == 0 ? 0 : selection.end.character + 1);
             }
+
+            newSelections.push(selection);
         }
 
         var retval = edit.size > 0;
@@ -274,6 +275,15 @@ export class Brief {
         console.log(`${method}::before=${JSON.stringify(before)};after=${JSON.stringify(after)};hasChanged=${hasChanged}`);
 
         return hasChanged;
+    }
+    private static prefixLineWith(lineNum: number, text: string, edit: vscode.WorkspaceEdit): void {
+        if (!text)
+            return;
+        if (!vscode.WorkspaceEdit)
+            return;
+
+        let startOfLine = new vscode.Position(lineNum, 0);
+        edit.insert(vscode.window.activeTextEditor.document.uri, startOfLine, text);
     }
 }
 
