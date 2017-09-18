@@ -71,6 +71,7 @@ foreach ($command in ($commands | Sort-Object -Property Category, Command, Modif
 
 "`n## Commands By Key" | Tee-Object $outputFileName -Append
 $legend | Tee-Object $outputFileName -Append
+"" | Tee-Object $outputFileName -Append
 $header | Tee-Object $outputFileName -Append
 foreach ($command in ($commands | Sort-Object -Property Command, Modifiers, Description)) {
     "|$((JoinCommand $command).PadRight($widthCommand,' '))|$((MapStatus $command.Status).PadRight($widthStatus,' '))|$($command.Description.PadRight($widthDesc,' '))|$($command.Notes.PadRight($widthNotes,' '))|" | Tee-Object $outputFileName -Append

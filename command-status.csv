@@ -1,10 +1,10 @@
 Category,Modifiers,Command,Status,Description,Notes
 Selections/Marks,`Alt`,_number_,not done,Set mark *number*,
-Scrap/Clipboard,`Ctrl`,`/`,not done,Toggle clipboard/scrap,?? Codewright
+Scrap/Clipboard,`Ctrl`,`/`,not done,Toggle clipboard/scrap,?? Codewright ??
 Buffer / File,`Alt`,`-`,not done,Previous buffer,
 Buffer / File,`Ctrl`,`-`,done,Close Buffer,
-Editing,`Ctrl`,`<`,done 25%,Slide-out Prompt,?? Codewright
-Editing,`Ctrl`,`>`,done 25%,Slide-in Prompt,?? Codewright
+Editing,`Ctrl`,`<`,done 25%,Slide-out Prompt,?? Codewright ??
+Editing,`Ctrl`,`>`,done 25%,Slide-in Prompt,?? Codewright ??
 Selections/Marks,`Alt`,`A`,not done,Begin selection (exclusive),
 Selections/Marks,`Ctrl`,`A`,not done,Close/open Selection,
 Buffer / File,`Alt`,`B`,not done,List of buffers,
@@ -27,7 +27,7 @@ Cursor Motion/Scrolling,,`End`,done 50%,End of line,
 Cursor Motion/Scrolling,,`End` + `End`,done 50%,Bottom of window,
 Cursor Motion/Scrolling,,`End` + `End` + `End`,done 50%,Bottom of file,
 Editing,`Ctrl`,`Enter`,done,Insert line below,
-System,`Shift`,`Enter`,not done,Expand/Collapse,?? Codewright
+System,`Shift`,`Enter`,not done,Expand/Collapse,?? Codewright ??
 System,,`Esc`,not done,Text Mode,
 Buffer / File,`Alt`,`F`,not done,Display filename,
 Window,`Alt`,`F1`,not done,Borders on/off,
@@ -46,13 +46,13 @@ Search/Replace,`Alt`,`F6`,not done,Reverse Replace,
 Search/Replace,`Ctrl`,`F6`,not done,Regular expressions on/off,
 Search/Replace,`Shift`,`F6`,done(vs),Replace,
 Search/Replace,,`F6`,done(vs),Replace,
-System,`Alt`,`F7`,not done,Load recording file,?? Codewright
-System,`Shift`,`F7`,not done,Pause Macro,?? Epsilon: http://www.lugaru.com/man/Brief.Emulation.html
+System,`Alt`,`F7`,not done,Load recording file,?? Codewright ??
+System,`Shift`,`F7`,not done,Pause Macro,?? Epsilon: http://tinyurl.com/ybrbyaor ??
 System,,`F7`,not done,Record keys toggle,
-System,`Alt`,`F8`,not done,Write recording file,?? Codewright
+System,`Alt`,`F8`,not done,Write recording file,?? Codewright ??
 System,,`F8`,not done,Playback keystrokes,
-System,`Shift`,`F9`,n/a,Unload DLL,?? Codewright
-System,,`F9`,n/a,Load DLL,?? Codewright
+System,`Shift`,`F9`,n/a,Unload DLL,?? Codewright ??
+System,,`F9`,n/a,Load DLL,?? Codewright ??
 Cursor Motion/Scrolling,`Alt`,`G`,done,Go to line (prompt),
 System,`Ctrl`,`G`,done(vs),Display routines,
 System,`Alt`,`H`,not done,Help,
@@ -67,20 +67,20 @@ Scrap/Clipboard,,`Ins`,done,Paste,
 Selections/Marks,`Alt`,`J` _number_,not done,Go to mark (prompt),
 Editing,`Alt`,`K`,done,Delete to end of line,
 Editing,`Ctrl`,`K`,done,Delete to start of line,
-Search/Replace,`Ctrl` + `Shift`,`K`,not done,Kiss matching brace,?? Codewright
+Search/Replace,`Ctrl` + `Shift`,`K`,not done,Kiss matching brace,?? Codewright ??
 Selections/Marks,`Alt`,`L`,not done,Begin selection (line),
 Cursor Motion/Scrolling,`Ctrl`,`Left`,done,Word left,
 Window,`Shift`,`Left`,not done,Select window at left,
 Cursor Motion/Scrolling,,`Left`,done,Column left,
 Selections/Marks,`Alt`,`M`,not done,Begin selection (inclusive),
-Search/Replace,`Ctrl` + `Shift`,`M`,not done,Multi-buffer Search again,?? Codewright
+Search/Replace,`Ctrl` + `Shift`,`M`,not done,Multi-buffer Search again,?? Codewright ??
 Buffer / File,`Alt`,`N`,not done,Next buffer,
 System,`Ctrl`,`N`,not done,Next error,
 Editing,,`Numpad *`,done,Undo,
 Scrap/Clipboard,,`Numpad -`,done,Cut,
 Scrap/Clipboard,,`Numpad +`,done,Copy,
-Selections/Marks,`Ctrl`,`Numpad` _number_,not done,Go to mark _number_,
-Selections/Marks,,`Numpad` _number_,not done,Set mark _number_,
+Selections/Marks,`Ctrl`,`Numpad` _number_,not done,Go to mark _number_,?? Original Brief ??
+Selections/Marks,,`Numpad` _number_,not done,Set mark _number_,?? Original Brief ??
 Buffer / File,`Alt`,`O`,done(vs),Change output name,
 Buffer / File,`Alt`,`P`,not done,Print buffer,
 System,`Ctrl`,`P`,not done,Show errors,
