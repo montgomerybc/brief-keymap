@@ -23,12 +23,65 @@ export function activate(context: vscode.ExtensionContext) {
         vscode.commands.registerCommand(`brief.${local}`, async () => { vscode.commands.executeCommand(method); })
     }
 
-    vscode.window.onDidChangeTextEditorSelection(e => Brief.onDidChangeTextEditorSelection);
+    vscode.window.onDidChangeTextEditorSelection(Brief.onDidChangeTextEditorSelection);
+    vscode.workspace.onDidChangeTextDocument(Brief.onDidChangeTextDocument);
+    vscode.commands.registerCommand('type', Brief.onType);
 }
 
 enum EndKeyState { None = 0, One = 1, Two = 2, Three = 3 };
 
 export class Brief {
+    public static async handleKeySpace(): Promise<boolean> {
+        var method = 'handleKeySpace';
+        console.log(method);
+
+        var editor = vscode.window.activeTextEditor;
+        if (!editor) {
+            return; // No open text editor
+        }
+
+        var pos = editor.selection.active;
+
+        var edit = new vscode.WorkspaceEdit();
+        var newSelections = new Array<vscode.Selection>();
+
+        for (let index in editor.selections) {
+            let selection = editor.selections[index];
+
+            if (selection.isSingleLine) {
+                console.log(`${method} selection.isSingleLine. selection=${JSON.stringify(selection)}`);
+                let lineNum = selection.start.line;
+                let line = editor.document.lineAt(lineNum);
+                if (line.range.isEqual(new vscode.Range(selection.start, selection.end))) {
+                    console.log(`${method} entire line selected`);
+                    let startOfLine = new vscode.Position(lineNum, 0);
+                    edit.insert(vscode.window.activeTextEditor.document.uri, startOfLine, ' ');
+                    newSelections.push(new vscode.Selection(startOfLine, new vscode.Position(lineNum, selection.end.character + 1)));//TODO: what about tabs?
+                } else {
+                    newSelections.push(selection);
+                }
+            } else {
+                console.log(`${method} !selection.isSingleLine. selection=${JSON.stringify(selection)}`)
+
+                for (let lineNum = selection.start.line; lineNum < selection.end.line; lineNum++) {
+                    let startOfLine = new vscode.Position(lineNum, 0);
+                    edit.insert(vscode.window.activeTextEditor.document.uri, startOfLine, ' ');
+                }
+                if (selection.end.character > 0) {
+                    let startOfLine = new vscode.Position(selection.end.line, 0);
+                    edit.insert(vscode.window.activeTextEditor.document.uri, startOfLine, ' ');
+                }
+                newSelections.push(selection);
+            }
+        }
+
+        var retval = edit.size > 0;
+
+        vscode.workspace.applyEdit(edit);
+        editor.selections = newSelections;
+
+        return retval;
+    }
     public static async home(): Promise<any> {
         var method = 'Brief.home';
         console.log(method);
@@ -141,9 +194,29 @@ export class Brief {
     }
 
     public static onDidChangeTextEditorSelection(e: vscode.TextEditorSelectionChangeEvent) {
-        var method = 'onDidChangeTextEditorSelection';
-        console.log(`${method} (${e})`);
+        // var method = 'onDidChangeTextEditorSelection';
+        // console.log(method);
+        // console.log(e);
         //TODO: reset Brief._endKeyState and Brief._lastPos?
+    }
+
+    public static onDidChangeTextDocument(e: vscode.TextDocumentChangeEvent) {
+        // var method = 'onDidChangeTextDocument';
+        // console.log(method);
+        // console.log(e);
+        //TODO: reset Brief._endKeyState and Brief._lastPos?
+    }
+
+    public static async onType(e: any) {
+        var method = 'onType';
+        console.log(method);
+        console.log(e);
+
+        if (e.text == ' ') {
+            if (await Brief.handleKeySpace())
+                return;
+        }
+        await vscode.commands.executeCommand('default:type', e);
     }
 
     private static async _moveToEndOfCurrentLine(editor: vscode.TextEditor): Promise<boolean> {
