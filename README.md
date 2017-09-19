@@ -30,7 +30,7 @@ TBD
 ### Buffer / File
 | Command                  | Status               | Description                      | Notes                                                  |
 |--------------------------|----------------------|----------------------------------|--------------------------------------------------------|
-|`Alt` + `-`               |:new_moon:            |Previous buffer                   |                                                        |
+|`Alt` + `-`               |:full_moon:           |Previous buffer                   |                                                        |
 |`Ctrl` + `-`              |:full_moon:           |Close Buffer                      |                                                        |
 |`Alt` + `=`               |:full_moon:           |Next buffer                       |                                                        |
 |`Alt` + `B`               |:waning_gibbous_moon: |List of buffers                   |                                                        |
@@ -199,7 +199,7 @@ TBD
 |--------------------------|----------------------|----------------------------------|--------------------------------------------------------|
 |`Alt` + _number_          |:new_moon:            |Set mark *number*                 |                                                        |
 |`Ctrl` + `/`              |:new_moon:            |Toggle clipboard/scrap            |?? Codewright ??                                        |
-|`Alt` + `-`               |:new_moon:            |Previous buffer                   |                                                        |
+|`Alt` + `-`               |:full_moon:           |Previous buffer                   |                                                        |
 |`Ctrl` + `-`              |:full_moon:           |Close Buffer                      |                                                        |
 |`Ctrl` + `<`              |:waning_crescent_moon:|Slide-out Prompt                  |?? Codewright ??                                        |
 |`Alt` + `=`               |:full_moon:           |Next buffer                       |                                                        |

@@ -1,7 +1,7 @@
 Category,Modifiers,Command,Status,Description,Notes
 Selections/Marks,`Alt`,_number_,not done,Set mark *number*,
 Scrap/Clipboard,`Ctrl`,`/`,not done,Toggle clipboard/scrap,?? Codewright ??
-Buffer / File,`Alt`,`-`,not done,Previous buffer,
+Buffer / File,`Alt`,`-`,done,Previous buffer,
 Buffer / File,`Ctrl`,`-`,done,Close Buffer,
 Editing,`Ctrl`,`<`,done 25%,Slide-out Prompt,?? Codewright ??
 Buffer / File,`Alt`,`=`,done,Next buffer,

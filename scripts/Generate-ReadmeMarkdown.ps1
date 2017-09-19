@@ -1,7 +1,7 @@
 Set-StrictMode -Version 2.0
 
 $statusFileName = [System.IO.Path]::Combine($PSScriptRoot, '..', 'command-status.csv')
-$outputFileName = [System.IO.Path]::Combine($PSScriptRoot, '..', 'command-status.raw.md')
+$readmeFileName = [System.IO.Path]::Combine($PSScriptRoot, '..', 'README.md')
 
 $commands = Import-Csv -Path $statusFileName
 $legend = @"
@@ -55,24 +55,44 @@ $header = @"
 |$('-' * $widthCommand)|$('-' * $widthStatus)|$('-' * $widthDesc)|$('-' * $widthNotes)|
 "@
 
-Clear-Content $outputFileName
-"## Commands By Category" | Tee-Object $outputFileName -Append
-$legend | Tee-Object $outputFileName -Append
+$content = @()
+$content += "## Commands By Category"
+$content += $legend
 
 $category = $null
 foreach ($command in ($commands | Sort-Object -Property Category, Command, Modifiers, Description)) {
     if ($command.Category -ne $category) {
         $category = $command.Category
-        "`n### $category" | Tee-Object $outputFileName -Append
-        $header | Tee-Object $outputFileName -Append
+        $content += "`n### $category"
+        $content += $header
     }
-    "|$((JoinCommand $command).PadRight($widthCommand,' '))|$((MapStatus $command.Status).PadRight($widthStatus,' '))|$($command.Description.PadRight($widthDesc,' '))|$($command.Notes.PadRight($widthNotes,' '))|" | Tee-Object $outputFileName -Append
+    $content += "|$((JoinCommand $command).PadRight($widthCommand,' '))|$((MapStatus $command.Status).PadRight($widthStatus,' '))|$($command.Description.PadRight($widthDesc,' '))|$($command.Notes.PadRight($widthNotes,' '))|"
 }
 
-"`n## Commands By Key" | Tee-Object $outputFileName -Append
-$legend | Tee-Object $outputFileName -Append
-"" | Tee-Object $outputFileName -Append
-$header | Tee-Object $outputFileName -Append
+$content += "`n## Commands By Key"
+$content += $legend
+$content += ""
+$content += $header
 foreach ($command in ($commands | Sort-Object -Property Command, Modifiers, Description)) {
-    "|$((JoinCommand $command).PadRight($widthCommand,' '))|$((MapStatus $command.Status).PadRight($widthStatus,' '))|$($command.Description.PadRight($widthDesc,' '))|$($command.Notes.PadRight($widthNotes,' '))|" | Tee-Object $outputFileName -Append
+    $content += "|$((JoinCommand $command).PadRight($widthCommand,' '))|$((MapStatus $command.Status).PadRight($widthStatus,' '))|$($command.Description.PadRight($widthDesc,' '))|$($command.Notes.PadRight($widthNotes,' '))|"
 }
+
+#$content = ($content -join "`n")
+#$content
+
+$orig = Get-Content $readmeFileName
+$start = $orig.IndexOf("## Commands By Category")
+$end = $orig.IndexOf("## Known Issues")
+
+if ($start -lt 0 -or $end -lt 0) {
+    throw "Could not find range"
+}
+
+$results = $()
+$results += $orig[0..($start - 1)]
+$results += $content
+$results += ""
+$results += ""
+$results += $orig[$end..($orig.Length - 1)]
+
+$results | Set-Content $readmeFileName
