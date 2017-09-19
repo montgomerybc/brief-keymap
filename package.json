@@ -28,6 +28,10 @@
                 "when": "editorTextFocus"
             },
             {
+                "key": "alt+b",
+                "command": "workbench.action.showAllEditors"
+            },
+            {
                 "key": "alt+backspace",
                 "command": "deleteWordRight",
                 "when": "editorTextFocus && !editorReadonly"

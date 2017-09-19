@@ -32,7 +32,7 @@ TBD
 |--------------------------|----------------------|----------------------------------|--------------------------------------------------------|
 |`Alt` + `-`               |:new_moon:            |Previous buffer                   |                                                        |
 |`Ctrl` + `-`              |:full_moon:           |Close Buffer                      |                                                        |
-|`Alt` + `B`               |:new_moon:            |List of buffers                   |                                                        |
+|`Alt` + `B`               |:waning_gibbous_moon: |List of buffers                   |                                                        |
 |`Alt` + `E`               |:waning_gibbous_moon: |Open file                         |                                                        |
 |`Alt` + `F`               |:new_moon:            |Display filename                  |                                                        |
 |`Alt` + `N`               |:new_moon:            |Next buffer                       |                                                        |
@@ -204,7 +204,7 @@ TBD
 |`Ctrl` + `>`              |:waning_crescent_moon:|Slide-in Prompt                   |?? Codewright ??                                        |
 |`Alt` + `A`               |:new_moon:            |Begin selection (exclusive)       |                                                        |
 |`Ctrl` + `A`              |:new_moon:            |Close/open Selection              |                                                        |
-|`Alt` + `B`               |:new_moon:            |List of buffers                   |                                                        |
+|`Alt` + `B`               |:waning_gibbous_moon: |List of buffers                   |                                                        |
 |`Ctrl` + `B`              |:new_moon:            |Make current line bottom of window|                                                        |
 |`Bksp`                    |:full_moon:           |Delete character to left          |                                                        |
 |`Alt` + `Bksp`            |:full_moon:           |Delete next word                  |                                                        |

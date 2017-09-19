@@ -7,7 +7,7 @@ Editing,`Ctrl`,`<`,done 25%,Slide-out Prompt,?? Codewright ??
 Editing,`Ctrl`,`>`,done 25%,Slide-in Prompt,?? Codewright ??
 Selections/Marks,`Alt`,`A`,not done,Begin selection (exclusive),
 Selections/Marks,`Ctrl`,`A`,not done,Close/open Selection,
-Buffer / File,`Alt`,`B`,not done,List of buffers,
+Buffer / File,`Alt`,`B`,done(vs),List of buffers,
 Cursor Motion/Scrolling,`Ctrl`,`B`,not done,Make current line bottom of window,
 Editing,`Alt`,`Bksp`,done,Delete next word,
 Editing,`Ctrl`,`Bksp`,done,Delete previous word,
