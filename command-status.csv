@@ -4,6 +4,7 @@ Scrap/Clipboard,`Ctrl`,`/`,not done,Toggle clipboard/scrap,?? Codewright ??
 Buffer / File,`Alt`,`-`,not done,Previous buffer,
 Buffer / File,`Ctrl`,`-`,done,Close Buffer,
 Editing,`Ctrl`,`<`,done 25%,Slide-out Prompt,?? Codewright ??
+Buffer / File,`Alt`,`=`,done,Next buffer,
 Editing,`Ctrl`,`>`,done 25%,Slide-in Prompt,?? Codewright ??
 Selections/Marks,`Alt`,`A`,not done,Begin selection (exclusive),
 Selections/Marks,`Ctrl`,`A`,not done,Close/open Selection,
@@ -74,7 +75,7 @@ Window,`Shift`,`Left`,not done,Select window at left,
 Cursor Motion/Scrolling,,`Left`,done,Column left,
 Selections/Marks,`Alt`,`M`,not done,Begin selection (inclusive),
 Search/Replace,`Ctrl` + `Shift`,`M`,not done,Multi-buffer Search again,?? Codewright ??
-Buffer / File,`Alt`,`N`,not done,Next buffer,
+Buffer / File,`Alt`,`N`,done,Next buffer,
 System,`Ctrl`,`N`,not done,Next error,
 Editing,,`Numpad *`,done,Undo,
 Scrap/Clipboard,,`Numpad -`,done,Cut,

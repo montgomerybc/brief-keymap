@@ -28,6 +28,14 @@
                 "when": "editorTextFocus"
             },
             {
+                "key": "alt+=",
+                "command": "workbench.action.nextEditor"
+            },
+            {
+                "key": "alt+-",
+                "command": "workbench.action.previousEditor"
+            },
+            {
                 "key": "alt+b",
                 "command": "workbench.action.showAllEditors"
             },
@@ -53,6 +61,10 @@
                 "key": "alt+k",
                 "command": "deleteAllRight",
                 "when": "editorTextFocus && !editorReadonly"
+            },
+            {
+                "key": "alt+n",
+                "command": "workbench.action.nextEditor"
             },
             {
                 "key": "alt+o",

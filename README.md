@@ -32,10 +32,11 @@ TBD
 |--------------------------|----------------------|----------------------------------|--------------------------------------------------------|
 |`Alt` + `-`               |:new_moon:            |Previous buffer                   |                                                        |
 |`Ctrl` + `-`              |:full_moon:           |Close Buffer                      |                                                        |
+|`Alt` + `=`               |:full_moon:           |Next buffer                       |                                                        |
 |`Alt` + `B`               |:waning_gibbous_moon: |List of buffers                   |                                                        |
 |`Alt` + `E`               |:waning_gibbous_moon: |Open file                         |                                                        |
 |`Alt` + `F`               |:new_moon:            |Display filename                  |                                                        |
-|`Alt` + `N`               |:new_moon:            |Next buffer                       |                                                        |
+|`Alt` + `N`               |:full_moon:           |Next buffer                       |                                                        |
 |`Alt` + `O`               |:waning_gibbous_moon: |Change output name                |                                                        |
 |`Alt` + `P`               |:new_moon:            |Print buffer                      |                                                        |
 |`Alt` + `R`               |:new_moon:            |Read file into buffer             |                                                        |
@@ -201,6 +202,7 @@ TBD
 |`Alt` + `-`               |:new_moon:            |Previous buffer                   |                                                        |
 |`Ctrl` + `-`              |:full_moon:           |Close Buffer                      |                                                        |
 |`Ctrl` + `<`              |:waning_crescent_moon:|Slide-out Prompt                  |?? Codewright ??                                        |
+|`Alt` + `=`               |:full_moon:           |Next buffer                       |                                                        |
 |`Ctrl` + `>`              |:waning_crescent_moon:|Slide-in Prompt                   |?? Codewright ??                                        |
 |`Alt` + `A`               |:new_moon:            |Begin selection (exclusive)       |                                                        |
 |`Ctrl` + `A`              |:new_moon:            |Close/open Selection              |                                                        |
@@ -271,7 +273,7 @@ TBD
 |`Shift` + `Left`          |:new_moon:            |Select window at left             |                                                        |
 |`Alt` + `M`               |:new_moon:            |Begin selection (inclusive)       |                                                        |
 |`Ctrl` + `Shift` + `M`    |:new_moon:            |Multi-buffer Search again         |?? Codewright ??                                        |
-|`Alt` + `N`               |:new_moon:            |Next buffer                       |                                                        |
+|`Alt` + `N`               |:full_moon:           |Next buffer                       |                                                        |
 |`Ctrl` + `N`              |:new_moon:            |Next error                        |                                                        |
 |`Numpad *`                |:full_moon:           |Undo                              |                                                        |
 |`Numpad -`                |:full_moon:           |Cut                               |                                                        |
