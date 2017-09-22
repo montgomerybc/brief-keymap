@@ -72,6 +72,14 @@
                 "when": "editorTextFocus"
             },
             {
+                "key": "alt+pagedown",
+                "command": "brief.down5"
+            },
+            {
+                "key": "alt+pageup",
+                "command": "brief.up5"
+            },
+            {
                 "key": "alt+s",
                 "command": "actions.find"
             },

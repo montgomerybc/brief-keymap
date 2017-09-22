@@ -10,8 +10,10 @@ export function activate(context: vscode.ExtensionContext) {
         'home',
     ];
 
-    let mappedMethods: [string, string][] = [
+    let mappedMethods: [string, string, any][] = [
         //['save', 'workbench.action.files.save'],
+        ['up5', 'cursorMove', { to: 'up', by: 'wrappedLine', value: 5 }],
+        ['down5', 'cursorMove', { to: 'down', by: 'wrappedLine', value: 5 }],
     ];
 
     for (let method of implementedMethods) {
@@ -20,8 +22,10 @@ export function activate(context: vscode.ExtensionContext) {
         );
     }
 
-    for (let [local, method] of mappedMethods) {
-        vscode.commands.registerCommand(`brief.${local}`, async () => { vscode.commands.executeCommand(method); })
+    for (let [local, method, args] of mappedMethods) {
+        vscode.commands.registerCommand(`brief.${local}`, async () => {
+            vscode.commands.executeCommand(method, args);
+        })
     }
 
     vscode.window.onDidChangeTextEditorSelection(Brief.onDidChangeTextEditorSelection);
