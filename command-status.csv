@@ -57,7 +57,7 @@ Search/Replace,`Ctrl`,`F6`,not done,Regular expressions on/off,x,x,,Brief
 Search/Replace,`Shift`,`F6`,done(vs),Replace again,x,x,,Brief
 Search/Replace,,`F6`,done(vs),Replace,x,x,,Brief
 System,`Alt`,`F7`,not done,Load recording file,x,x,,Brief
-System,`Shift`,`F7`,not done,Pause Macro,x,,,Brief ?? Epsilon: http://tinyurl.com/ybrbyaor ??
+System,`Shift`,`F7`,not done,Pause Macro,x,?,,Brief
 System,,`F7`,not done,Record keys toggle,x,x,,Brief
 System,`Alt`,`F8`,not done,Write recording file,,x,,Codewright
 System,,`F8`,not done,Playback keystrokes,x,x,,Brief

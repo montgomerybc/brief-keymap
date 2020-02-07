@@ -40,8 +40,8 @@ function MapStatus($s) {
 }
 function MapAvailability($s) {
     switch ($s) {
-        'x' { ':white_check_mark:' }
-        '?' { ':grey_question:' }
+        # 'x' { ':white_check_mark:' }
+        # '?' { ':grey_question:' }
         default { $s }
     }
 }
@@ -52,16 +52,28 @@ function JoinCommand($cmd) {
         $cmd.Command
     }
 }
+function L($w) {
+    '-' * $w
+}
+function C($w) {
+    $w -= 2
+    if ($w -lt 0) {
+        $w = 1
+    }
+    ':' + ('-' * $w) + ':'
+}
 
 $widthCommand = ( $commands | ForEach-Object { JoinCommand $_ } | Measure-Object Length -Maximum ).Maximum
 $widthStatus = ( $commands | ForEach-Object { (MapStatus $_.Status) } | Measure-Object Length -Maximum ).Maximum
 $widthDesc = ( $commands | ForEach-Object { $_.Description } | Measure-Object Length -Maximum ).Maximum
-$widthAvailability = ":white_check_mark:".Length
+$widthBrief = "Brief".Length
+$widthCodewright = " Codewright".Length
+$widthPersonal = " Personal".Length
 $widthNotes = ( $commands | ForEach-Object { $_.Notes } | Measure-Object Length -Maximum ).Maximum
 
 $header = @"
-|$(' Command'.PadRight($widthCommand))|$(' Status'.PadRight($widthStatus))|$(' Description'.PadRight($widthDesc))|$(' Brief'.PadRight($widthAvailability))|$(' Codewright'.PadRight($widthAvailability))|$(' Personal'.PadRight($widthAvailability))|$(' Notes'.PadRight($widthNotes))|
-|$('-' * $widthCommand)|$('-' * $widthStatus)|$('-' * $widthDesc)|$('-' * $widthAvailability)|$('-' * $widthAvailability)|$('-' * $widthAvailability)|$('-' * $widthNotes)|
+|$('Command'.PadRight($widthCommand))|$('Status'.PadRight($widthStatus))|$('Description'.PadRight($widthDesc))|$('Brief'.PadRight($widthBrief))|$('Codewright'.PadRight($widthCodewright))|$('Personal'.PadRight($widthPersonal))|$('Notes'.PadRight($widthNotes))|
+|$(L($widthCommand))|$(C($widthStatus))|$(L($widthDesc))|$(C($widthBrief))|$(C($widthCodewright))|$(C($widthPersonal))|$(L($widthNotes))|
 "@
 
 $content = @()
@@ -75,7 +87,7 @@ foreach ($command in ($commands | Sort-Object -Property Category, Command, Modif
         $content += "`n### $category"
         $content += $header
     }
-    $content += "|$((JoinCommand $command).PadRight($widthCommand,' '))|$((MapStatus $command.Status).PadRight($widthStatus,' '))|$($command.Description.PadRight($widthDesc,' '))|$((MapAvailability $command.Brief).PadRight($widthAvailability,' '))|$((MapAvailability $command.Codewright).PadRight($widthAvailability,' '))|$((MapAvailability $command.Personal).PadRight($widthAvailability,' '))|$($command.Notes.PadRight($widthNotes,' '))|"
+    $content += "|$((JoinCommand $command).PadRight($widthCommand,' '))|$((MapStatus $command.Status).PadRight($widthStatus,' '))|$($command.Description.PadRight($widthDesc,' '))|$((MapAvailability $command.Brief).PadRight($widthBrief,' '))|$((MapAvailability $command.Codewright).PadRight($widthCodewright,' '))|$((MapAvailability $command.Personal).PadRight($widthPersonal,' '))|$($command.Notes.PadRight($widthNotes,' '))|"
 }
 
 $content += "`n## Commands By Key"
@@ -83,7 +95,7 @@ $content += $legend
 $content += ""
 $content += $header
 foreach ($command in ($commands | Sort-Object -Property Command, Modifiers, Description)) {
-    $content += "|$((JoinCommand $command).PadRight($widthCommand,' '))|$((MapStatus $command.Status).PadRight($widthStatus,' '))|$($command.Description.PadRight($widthDesc,' '))|$((MapAvailability $command.Brief).PadRight($widthAvailability,' '))|$((MapAvailability $command.Codewright).PadRight($widthAvailability,' '))|$((MapAvailability $command.Personal).PadRight($widthAvailability,' '))|$($command.Notes.PadRight($widthNotes,' '))|"
+    $content += "|$((JoinCommand $command).PadRight($widthCommand,' '))|$((MapStatus $command.Status).PadRight($widthStatus,' '))|$($command.Description.PadRight($widthDesc,' '))|$((MapAvailability $command.Brief).PadRight($widthBrief,' '))|$((MapAvailability $command.Codewright).PadRight($widthCodewright,' '))|$((MapAvailability $command.Personal).PadRight($widthPersonal,' '))|$($command.Notes.PadRight($widthNotes,' '))|"
 }
 
 #$content = ($content -join "`n")
