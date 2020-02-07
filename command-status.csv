@@ -1,118 +1,132 @@
-Category,Modifiers,Command,Status,Description,Notes
-Selections/Marks,`Alt`,_number_,not done,Set mark *number*,
-Scrap/Clipboard,`Ctrl`,`/`,not done,Toggle clipboard/scrap,?? Codewright ??
-Buffer / File,`Alt`,`-`,done,Previous buffer,
-Buffer / File,`Ctrl`,`-`,done,Close Buffer,
-Editing,`Ctrl`,`<`,done 25%,Slide-out Prompt,?? Codewright ??
-Buffer / File,`Alt`,`=`,done,Next buffer,
-Editing,`Ctrl`,`>`,done 25%,Slide-in Prompt,?? Codewright ??
-Selections/Marks,`Alt`,`A`,not done,Begin selection (exclusive),
-Selections/Marks,`Ctrl`,`A`,not done,Close/open Selection,
-Buffer / File,`Alt`,`B`,done(vs),List of buffers,
-Cursor Motion/Scrolling,`Ctrl`,`B`,not done,Make current line bottom of window,
-Editing,`Alt`,`Bksp`,done,Delete next word,
-Editing,`Ctrl`,`Bksp`,done,Delete previous word,
-Editing,,`Bksp`,done,Delete character to left,
-Selections/Marks,`Alt`,`C`,not done,Begin selection (column),
-Cursor Motion/Scrolling,`Ctrl`,`C`,not done,Center current line in window,
-Editing,`Alt`,`D`,done,Delete line,
-Cursor Motion/Scrolling,`Ctrl`,`D`,not done,Scroll down 1 line,
-Scrap/Clipboard,`Shift`,`Del`,done,Cut,
-Editing,,`Del`,done,Delete character,
-Window,`Shift`,`Down`,not done,Select window below,
-Cursor Motion/Scrolling,,`Down`,done,Line down,
-Buffer / File,`Alt`,`E`,done(vs),Open file,
-Cursor Motion/Scrolling,`Ctrl`,`End`,not done,Bottom of window,
-Cursor Motion/Scrolling,`Shift`,`End`,not done,Right window edge,
-Cursor Motion/Scrolling,,`End`,done 50%,End of line,
-Cursor Motion/Scrolling,,`End` + `End`,done 50%,Bottom of window,
-Cursor Motion/Scrolling,,`End` + `End` + `End`,done 50%,Bottom of file,
-Editing,`Ctrl`,`Enter`,done,Insert line below,
-System,`Shift`,`Enter`,not done,Expand/Collapse,?? Codewright ??
-System,,`Esc`,not done,Text Mode,
-Buffer / File,`Alt`,`F`,not done,Display filename,
-Window,`Alt`,`F1`,not done,Borders on/off,
-Window,,`F1`,not done,Move to window,
-System,`Alt`,`F10`,not done,Compile buffer,
-System,,`F10`,n/a,API interface,
-Window,`Alt`,`F2`,not done,Zoom/Unzoom window,
-Window,,`F2`,not done,Resize window,
-Window,,`F3`,not done,Split window,
-Window,,`F4`,not done,Delete window,
-Search/Replace,`Alt`,`F5`,not done,Reverse Search,
-Search/Replace,`Ctrl`,`F5`,not done,Ignore case on/off,
-Search/Replace,`Shift`,`F5`,done(vs),Search again, *use editor.action.addSelectionToNextFindMatch instead?*
-Search/Replace,,`F5`,done(vs),Search,
-Search/Replace,`Alt`,`F6`,not done,Reverse Replace,
-Search/Replace,`Ctrl`,`F6`,not done,Regular expressions on/off,
-Search/Replace,`Shift`,`F6`,done(vs),Replace,
-Search/Replace,,`F6`,done(vs),Replace,
-System,`Alt`,`F7`,not done,Load recording file,?? Codewright ??
-System,`Shift`,`F7`,not done,Pause Macro,?? Epsilon: http://tinyurl.com/ybrbyaor ??
-System,,`F7`,not done,Record keys toggle,
-System,`Alt`,`F8`,not done,Write recording file,?? Codewright ??
-System,,`F8`,not done,Playback keystrokes,
-System,`Shift`,`F9`,n/a,Unload DLL,?? Codewright ??
-System,,`F9`,n/a,Load DLL,?? Codewright ??
-Cursor Motion/Scrolling,`Alt`,`G`,done,Go to line (prompt),
-System,`Ctrl`,`G`,done(vs),Display routines,
-System,`Alt`,`H`,not done,Help,
-Cursor Motion/Scrolling,`Ctrl`,`Home`,not done,Top of window,
-Cursor Motion/Scrolling,`Shift`,`Home`,not done,Left window edge,
-Cursor Motion/Scrolling,,`Home`,done 75%,Beginning of line,
-Cursor Motion/Scrolling,,`Home` + `Home`,done 75%,Top of window,
-Cursor Motion/Scrolling,,`Home` + `Home` + `Home`,done 75%,Top of file,
-System,`Alt`,`I`,not done,Insert mode on/off,
-Scrap/Clipboard,`Ctrl`,`Ins`,done,Copy,
-Scrap/Clipboard,,`Ins`,done,Paste,
-Selections/Marks,`Alt`,`J` _number_,not done,Go to mark (prompt),
-Editing,`Alt`,`K`,done,Delete to end of line,
-Editing,`Ctrl`,`K`,done,Delete to start of line,
-Search/Replace,`Ctrl` + `Shift`,`K`,not done,Kiss matching brace,?? Codewright ??
-Selections/Marks,`Alt`,`L`,not done,Begin selection (line),
-Cursor Motion/Scrolling,`Ctrl`,`Left`,done,Word left,
-Window,`Shift`,`Left`,not done,Select window at left,
-Cursor Motion/Scrolling,,`Left`,done,Column left,
-Selections/Marks,`Alt`,`M`,not done,Begin selection (inclusive),
-Search/Replace,`Ctrl` + `Shift`,`M`,not done,Multi-buffer Search again,?? Codewright ??
-Buffer / File,`Alt`,`N`,done,Next buffer,
-System,`Ctrl`,`N`,not done,Next error,
-Editing,,`Numpad *`,done,Undo,
-Scrap/Clipboard,,`Numpad -`,done,Cut,
-Scrap/Clipboard,,`Numpad +`,done,Copy,
-Selections/Marks,`Ctrl`,`Numpad` _number_,not done,Go to mark _number_,?? Original Brief ??
-Selections/Marks,,`Numpad` _number_,not done,Set mark _number_,?? Original Brief ??
-Buffer / File,`Alt`,`O`,done(vs),Change output name,
-Buffer / File,`Alt`,`P`,not done,Print buffer,
-System,`Ctrl`,`P`,not done,Show errors,
-Cursor Motion/Scrolling,`Ctrl`,`PgDn`,done,Bottom of file,
-Cursor Motion/Scrolling,,`PgDn`,done,Page down,
-Cursor Motion/Scrolling,`Ctrl`,`PgUp`,not done,Top of file,
-Cursor Motion/Scrolling,,`PgUp`,done,Page up,
-Editing,`Alt`,`Q`,not done,Quoted Insert,
-Search/Replace,`Ctrl` + `Shift`,`Q`,not done,Quick search for word,
-Buffer / File,`Alt`,`R`,not done,Read file into buffer,
-System,`Ctrl`,`R`,not done,Repeat key action,
-Cursor Motion/Scrolling,`Ctrl`,`Right`,done,Word right,
-Window,`Shift`,`Right`,not done,Select window at right,
-Cursor Motion/Scrolling,,`Right`,done,Column right,
-Search/Replace,`Alt`,`S`,done(vs),Search,
-Editing,`Shift`,`Space`,not done,Unindent block by space,**additional command. TODO tie to setting*
-Editing,,`Space`,done,Indent block by space,
-Search/Replace,`Alt`,`T`,done(vs),Replace,
-Cursor Motion/Scrolling,`Ctrl`,`T`,not done,Make current line top of window,
-Editing,`Shift`,`Tab`,done,Unindent block by tab,
-Editing,,`Tab`,done,Indent block by tab,
-Editing,`Alt`,`U`,done,Undo,
-Cursor Motion/Scrolling,`Ctrl`,`U`,not done,Scroll up 1 line,
-Window,`Shift`,`Up`,not done,Select window above,
-Cursor Motion/Scrolling,,`Up`,done,Line up,
-System,`Alt`,`V`,not done,Print version,
-Buffer / File,`Alt`,`W`,done,Save file,
-Buffer / File,`Alt`,`W`,not done,Write selection to file,
-System,`Ctrl`,`W`,n/a,Backups on/off,
-System,`Alt`,`X`,not done,Quit with prompt,
-System,`Ctrl`,`X`,not done,Quit with write,
-Editing,`Alt`,`Y`,done,Redo,
-System,`Alt`,`Z`,not done,Shell,
-Window,`Ctrl`,`Z`,not done,Zoom/Unzoom window,
+Category,Modifiers,Command,Status,Description,Brief,Codewright,Personal,Notes
+Selections/Marks,`Alt`,_number_,not done,Set mark *number*,x,x,,Brief. Keypad numbers only?  Not keypad?
+Scrap/Clipboard,`Ctrl`,`/`,not done,Toggle clipboard/scrap,,x,,Codewright
+Buffer / File,`Alt`,`-`,done,Previous buffer,x,x,,Brief
+Buffer / File,`Ctrl`,`-`,done,Close Buffer,x,x,,Brief
+Editing,`Ctrl`,`<`,done 25%,Slide-out Prompt,,x,,Codewright
+Buffer / File,`Alt`,`=`,done,Next buffer,,,x,Personal
+Editing,`Ctrl`,`>`,done 25%,Slide-in Prompt,,x,,Codewright
+Selections/Marks,`Alt`,`A`,not done,Begin selection (exclusive),x,x,,Brief
+Selections/Marks,`Ctrl`,`A`,not done,Close/open Selection,,x,,Codewright
+System,`Ctrl` + `Shift`,`A`,not done,Text Mode / Deselect / Unfold,,x,,Codewright
+Buffer / File,`Alt`,`B`,done(vs),List of buffers,x,x,,Brief
+Cursor Motion/Scrolling,`Ctrl`,`B`,not done,Make current line bottom of window,x,x,,Brief
+Editing,`Alt`,`Bksp`,done,Delete next word,,x,,Codewright
+Editing,`Ctrl`,`Bksp`,done,Delete previous word,x,x,,Brief
+Editing,`Shift`,`Bksp`,done,Delete character to left,,x,,Codewright (same as `Bksp`)
+Editing,,`Bksp`,done,Delete character to left,x,x,,Brief
+System,`Ctrl`,`Break`,n/a,Halt,x,,,Brief
+Selections/Marks,`Alt`,`C`,not done,Begin selection (column),x,x,,Brief
+Cursor Motion/Scrolling,`Ctrl`,`C`,not done,Center current line in window,x,x,,Brief
+Window,`Ctrl` + `Shift`,`C`,not done,Compact Mode,,x,,Codewright
+Editing,`Alt`,`D`,done,Delete line,x,x,,Brief
+Cursor Motion/Scrolling,`Ctrl`,`D`,not done,Scroll down 1 line,x,x,,Brief
+Scrap/Clipboard,`Shift`,`Del`,done,Cut,,x,,Codewright (same as `Numpad -`)
+Editing,,`Del`,done,Delete character,x,x,,Brief
+Window,`Alt` + `Shift`,`Down`,not done,Next split window pane,,x,,Codewright
+Window,`Shift`,`Down`,not done,Select window below,,x,,Codewright
+Cursor Motion/Scrolling,,`Down`,done,Line down,x,x,,Brief
+Buffer / File,`Alt`,`E`,done(vs),Open file,x,x,,Brief
+Cursor Motion/Scrolling,`Ctrl`,`E`,not done,Scroll up 1 line,x,x,,Brief
+Cursor Motion/Scrolling,`Ctrl`,`End`,not done,Bottom of window,x,x,,Brief
+Cursor Motion/Scrolling,`Shift`,`End`,not done,Right window edge,x,x,,Brief
+Cursor Motion/Scrolling,,`End`,done 50%,End of line,x,x,,Brief
+Cursor Motion/Scrolling,,`End` + `End`,done 50%,Bottom of window,x,x,,Brief
+Cursor Motion/Scrolling,,`End` + `End` + `End`,done 50%,Bottom of file,x,x,,Brief
+Editing,`Ctrl`,`Enter`,done,Insert line below,x,x,,Brief
+System,`Shift`,`Enter`,not done,Expand/Collapse,,x,,Codewright
+Editing,,`Enter`,done,Enter,x,x,,Brief
+System,,`Esc`,not done,Text Mode / Deselect / Unfold,x,x,,Brief
+Buffer / File,`Alt`,`F`,wip,Display filename,x,x,,Brief
+Window,`Alt`,`F1`,not done,Borders on/off,x,x,,Brief. Codewright: CodeSense parameter
+System,`Shift`,`F1`,n/a,CodeSense Hover Tooltip,,x,,Codewright
+Window,,`F1`,not done,Move to window,x,x,,Brief
+System,`Alt`,`F10`,not done,Compile buffer,x,x,,Brief
+System,,`F10`,not done,API interface / Execute Macro,x,x,,Brief (same as VSCode F1?)
+Window,`Alt`,`F2`,not done,Zoom/Unzoom window,x,x,,Brief
+Window,,`F2`,not done,Resize window,x,x,,Brief
+Window,,`F3`,not done,Split window,x,x,,Brief
+System,`Ctrl`,`F4`,not done,Close Window,,x,,Codewright just window
+Window,,`F4`,not done,Delete window,x,x,,Brief
+Search/Replace,`Alt`,`F5`,not done,Reverse Search,x,x,,Brief
+Search/Replace,`Ctrl`,`F5`,not done,Ignore case on/off,x,x,,Brief
+Search/Replace,`Shift`,`F5`,done(vs),Search again,x,x,,Brief *use editor.action.addSelectionToNextFindMatch instead?*
+Search/Replace,,`F5`,done(vs),Search,x,x,,Brief
+Search/Replace,`Alt`,`F6`,not done,Reverse Replace,x,x,,Brief
+Search/Replace,`Ctrl`,`F6`,not done,Regular expressions on/off,x,x,,Brief
+Search/Replace,`Shift`,`F6`,done(vs),Replace again,x,x,,Brief
+Search/Replace,,`F6`,done(vs),Replace,x,x,,Brief
+System,`Alt`,`F7`,not done,Load recording file,x,x,,Brief
+System,`Shift`,`F7`,not done,Pause Macro,x,,,Brief ?? Epsilon: http://tinyurl.com/ybrbyaor ??
+System,,`F7`,not done,Record keys toggle,x,x,,Brief
+System,`Alt`,`F8`,not done,Write recording file,,x,,Codewright
+System,,`F8`,not done,Playback keystrokes,x,x,,Brief
+System,`Shift`,`F9`,n/a,Delete Macro File / Unload DLL,x,x,,Brief
+System,,`F9`,n/a,Load Macro File / Load DLL,x,x,,Brief
+Cursor Motion/Scrolling,`Alt`,`G`,done,Go to line (prompt),x,x,,Brief
+System,`Ctrl`,`G`,done(vs),Display routines,,x,,Codewright (popup? Fold?)
+System,`Alt`,`H`,not done,Help,x,,,Brief
+System,`Ctrl` + `Shift`,`H`,not done,Binary/Hex view,,x,,Codewright
+Cursor Motion/Scrolling,`Ctrl`,`Home`,not done,Top of window,x,x,,Brief
+Cursor Motion/Scrolling,`Shift`,`Home`,not done,Left window edge,,x,,Codewright
+Cursor Motion/Scrolling,,`Home`,done 75%,Beginning of line,x,x,,Brief
+Cursor Motion/Scrolling,,`Home` + `Home`,done 75%,Top of window,x,x,,Brief
+Cursor Motion/Scrolling,,`Home` + `Home` + `Home`,done 75%,Top of file,x,x,,Brief
+System,`Alt`,`I`,not done,Insert mode on/off,x,x,,Brief
+Scrap/Clipboard,`Ctrl`,`Ins`,done,Copy,,x,,Codewright (same as `Numpad +`)
+Scrap/Clipboard,,`Ins`,done,Paste,x,x,,Brief
+Selections/Marks,`Alt`,`J` _number_,not done,Go to mark (prompt),x,x,,Brief
+Editing,`Alt`,`K`,done,Delete to end of line,x,x,,Brief
+Editing,`Ctrl`,`K`,done,Delete to start of line,,x,,Codewright
+Search/Replace,`Ctrl` + `Shift`,`K`,not done,Kiss matching brace,,x,,Codewright
+Selections/Marks,`Alt`,`L`,not done,Begin selection (line),x,x,,Brief
+Cursor Motion/Scrolling,`Alt` + `Shift`,`Left`,not done,Previous Document Position (Back),,x,,Codewright
+Cursor Motion/Scrolling,`Ctrl`,`Left`,done,Word left,x,x,,Brief
+Window,`Shift`,`Left`,not done,Select window at left,,x,,Codewright
+Cursor Motion/Scrolling,,`Left`,done,Column left,x,x,,Brief
+Selections/Marks,`Alt`,`M`,not done,Begin selection (inclusive),x,x,,Brief
+Search/Replace,`Ctrl` + `Shift`,`M`,not done,Multi-buffer Search again,,,,??
+Buffer / File,`Alt`,`N`,done,Next buffer,x,x,,Brief
+System,`Ctrl`,`N`,not done,Next error,x,x,,Brief
+Editing,,`Numpad *`,done,Undo,x,x,,Brief
+Scrap/Clipboard,`Ctrl`,`Numpad /`,not done,Toggle clipboard/scrap,,x,,Codewright
+Scrap/Clipboard,,`Numpad -`,done,Cut,x,x,,Brief
+Scrap/Clipboard,,`Numpad +`,done,Copy,x,x,,Brief
+Selections/Marks,`Ctrl`,`Numpad` _number_,not done,Go to mark _number_,,,x,Personal
+Selections/Marks,,`Numpad` _number_,not done,Set mark _number_,,,x,Personal
+Buffer / File,`Alt`,`O`,done(vs),Change output name,x,x,,Brief
+Buffer / File,`Alt`,`P`,not done,Print buffer / selection,x,x,,Brief
+System,`Ctrl`,`P`,not done,Show errors,x,x,,Brief
+Cursor Motion/Scrolling,`Ctrl`,`PgDn`,done,End of Buffer / Bottom of file,x,x,,Brief
+Cursor Motion/Scrolling,,`PgDn`,done,Page down,x,x,,Brief
+Cursor Motion/Scrolling,`Ctrl`,`PgUp`,not done,Top of file,x,x,,Brief
+Cursor Motion/Scrolling,,`PgUp`,done,Page up,x,x,,Brief
+Editing,`Alt`,`Q`,not done,Quoted Insert,x,x,,Brief
+Search/Replace,`Ctrl` + `Shift`,`Q`,not done,Quick search for word,,x,,Codewright
+Buffer / File,`Alt`,`R`,not done,Read file into buffer,x,x,,Brief
+System,`Ctrl`,`R`,not done,Repeat key action,x,x,,Brief
+Cursor Motion/Scrolling,`Alt` + `Shift`,`Right`,not done,Next Document Position (Back),,x,,Codewright
+Cursor Motion/Scrolling,`Ctrl`,`Right`,done,Word right,x,x,,Brief
+Window,`Shift`,`Right`,not done,Select window at right,,x,,Codewright
+Cursor Motion/Scrolling,,`Right`,done,Column right,x,x,,Brief
+Search/Replace,`Alt`,`S`,done(vs),Search,x,x,,Brief
+Editing,`Shift`,`Space`,not done,Unindent block by space,,,,**additional command. TODO tie to setting*
+Editing,,`Space`,done,Space / Indent block by space,x,x,,Brief
+Search/Replace,`Alt`,`T`,done(vs),Replace,x,x,,Brief
+Cursor Motion/Scrolling,`Ctrl`,`T`,not done,Make current line top of window,x,x,,Brief
+Editing,`Shift`,`Tab`,done,Back Tab / Unindent block by tab,x,x,,Brief
+Editing,,`Tab`,done,Tab / Indent block by tab,x,x,,Brief
+Editing,`Alt`,`U`,done,Undo,x,x,,Brief
+Editing,`Ctrl`,`U`,not done,Redo,x,x,,Brief
+Window,`Alt` + `Shift`,`Up`,not done,Previous split window pane,,x,,Codewright
+Window,`Shift`,`Up`,not done,Select window above,,x,,Codewright
+Cursor Motion/Scrolling,,`Up`,done,Line up,x,x,,Brief
+System,`Alt`,`V`,not done,Print version,x,x,,Brief
+Buffer / File,`Alt`,`W`,done,Save file,x,x,,Brief
+Buffer / File,`Alt`,`W`,not done,Write selection to file,x,?,,Brief
+System,`Ctrl`,`W`,n/a,Backups on/off,x,x,,Brief
+System,`Alt`,`X`,not done,Quit with prompt,x,x,,Brief
+System,`Ctrl`,`X`,not done,Quit with write,x,x,,Brief
+Editing,`Alt`,`Y`,done,Redo,,x,,Codewright
+System,`Alt`,`Z`,not done,Suspend Brief / Shell,x,x,,Brief n/a.  Codewright?
+Window,`Ctrl`,`Z`,not done,Zoom/Unzoom window,x,x,,Brief
