@@ -241,13 +241,6 @@ export class Brief {
     }
 
     public static async end(): Promise<any> {
-        //TODO: From middle of document
-        // 1 <END>  - goes to end of current line
-        // 2 <END>  - goes to end of window (but scroll up 1, so current is second last)
-        // 3 <HOME> - goes to start of current line (which is now second last)
-        // 4 <END>  -  goes to end of current line (second last)
-        // 5 <END>  - goes to end of 1 line down since previous "current" has scrolled up by 1.
-        // ideally 4 <END> would know is was last considered end of window so 5 <END> would go to end of file
         var method = 'Brief.end';
         console.log(method);
 
@@ -255,62 +248,75 @@ export class Brief {
         if (!editor)
             return;
 
-        // // var posBefore = editor.selection.active;
-        // // console.log(`${method}::posBefore=${JSON.stringify(editor.selection.active)};_endKeyState=${EndKeyState[Brief._endKeyState]};_lastPos=${JSON.stringify(Brief._lastPos)}`);
+        var prev = HomeEndKeyStates.None;
+        var gesture = "";
 
-        // // var hasChanged: boolean = false;
-        // // // <END>
-        // // hasChanged = await this._moveToEndOfCurrentLine(editor);
+        switch (Brief._homeEndKeyState) {
+            case HomeEndKeyStates.None:
+            case HomeEndKeyStates.Home1:
+            case HomeEndKeyStates.Home2:
+                gesture = "<END>";
 
-        // // if (hasChanged) {
-        // //     // Cursor changed positions, we're done
-        // //     Brief._lastPos = editor.selection.active;
-        // //     Brief._endKeyState = EndKeyState.One;
-        // //     console.log(`${method}::<END>_endKeyState=${EndKeyState[Brief._endKeyState]};_lastPos=${JSON.stringify(Brief._lastPos)}`);
-        // //     return;
-        // // } else {
-        // //     // Didn't move, we must be at least at the end of the line
-        // //     //Brief._endKeyState = EndKeyState.One;
-        // // }
+                console.log(`${method}::${gesture}posBefore=${JSON.stringify(editor.selection.active)}`);
 
-        // // if (Brief._endKeyState == EndKeyState.One) {
-        // //     // <END><END>
-        // //     hasChanged = await this._moveToEndOfCurrentViewPort(editor);
+                prev = Brief._homeEndKeyState;
+                Brief._homeEndKeyState = HomeEndKeyStates.MovingEol;
+                console.log(`${method}::${gesture}transitioning state ${HomeEndKeyStates[prev]}->${HomeEndKeyStates[Brief._homeEndKeyState]}`);
 
-        // //     if (hasChanged) {
-        // //         // Cursor changed positions, we're done
-        // //         Brief._lastPos = editor.selection.active;
-        // //         Brief._endKeyState = EndKeyState.Two;
-        // //         console.log(`${method}::<END><END>_endKeyState=${EndKeyState[Brief._endKeyState]};_lastPos=${JSON.stringify(Brief._lastPos)}`);
-        // //         return;
-        // //     } else {
-        // //         // Didn't move, we must be at least at the end of the line
-        // //         Brief._endKeyState = EndKeyState.Two;
-        // //     }
-        // // }
+                await this._moveToEndOfCurrentLine(editor);
+                console.log(`${method}::${gesture}after _moveToEndOfCurrentLine:${JSON.stringify(editor.selection.active)}`);
 
-        // // if (Brief._endKeyState == EndKeyState.Two) {
-        // //     await Brief._moveToEndOfFile(editor);
-        // //     Brief._lastPos = editor.selection.active;
-        // //     Brief._endKeyState = EndKeyState.Three;
-        // //     console.log(`${method}::<END><END><END>_endKeyState=${EndKeyState[Brief._endKeyState]};_lastPos=${JSON.stringify(Brief._lastPos)}`);
-        // // }
-    }
+                prev = Brief._homeEndKeyState;
+                Brief._homeEndKeyState = HomeEndKeyStates.End1
+                console.log(`${method}::${gesture}transitioning state ${HomeEndKeyStates[prev]}->${HomeEndKeyStates[Brief._homeEndKeyState]}`);
+                break;
 
-    public static async moveToEndOfFile(): Promise<any> {
-        // // var method = 'Brief.moveToEndOfFile';
-        // // console.log(method);
+            case HomeEndKeyStates.End1:
+                gesture = "<END><END>";
 
-        // // var editor = vscode.window.activeTextEditor;
-        // // if (!editor)
-        // //     return;
+                console.log(`${method}::${gesture}posBefore=${JSON.stringify(editor.selection.active)}`);
 
-        // // await Brief._moveToEndOfFile(editor);
+                prev = Brief._homeEndKeyState;
+                Brief._homeEndKeyState = HomeEndKeyStates.MovingEow;
+                console.log(`${method}::${gesture}transitioning state ${HomeEndKeyStates[prev]}->${HomeEndKeyStates[Brief._homeEndKeyState]}`);
 
-        // // var pos = editor.selection.active;
+                await this._moveToEndOfCurrentViewPort(editor);
+                console.log(`${method}::${gesture}after _moveToEndOfCurrentViewPort:${JSON.stringify(editor.selection.active)}`);
 
-        // // Brief._lastPos = pos;
-        // // Brief._endKeyState = EndKeyState.Three;
+                prev = Brief._homeEndKeyState;
+                Brief._homeEndKeyState = HomeEndKeyStates.End2
+                console.log(`${method}::${gesture}transitioning state ${HomeEndKeyStates[prev]}->${HomeEndKeyStates[Brief._homeEndKeyState]}`);
+                break;
+
+            case HomeEndKeyStates.End2:
+                gesture = "<END><END><END>";
+
+                console.log(`${method}::${gesture}posBefore=${JSON.stringify(editor.selection.active)}`);
+
+                prev = Brief._homeEndKeyState;
+                Brief._homeEndKeyState = HomeEndKeyStates.MovingEof;
+                console.log(`${method}::${gesture}transitioning state ${HomeEndKeyStates[prev]}->${HomeEndKeyStates[Brief._homeEndKeyState]}`);
+
+                await this._moveToEndOfFile(editor);
+                console.log(`${method}::${gesture}after _moveToEndOfFile:${JSON.stringify(editor.selection.active)}`);
+
+                prev = Brief._homeEndKeyState;
+                Brief._homeEndKeyState = HomeEndKeyStates.End2
+                console.log(`${method}::${gesture}transitioning state ${HomeEndKeyStates[prev]}->${HomeEndKeyStates[Brief._homeEndKeyState]}`);
+                break;
+
+            case HomeEndKeyStates.MovingBow:
+            case HomeEndKeyStates.MovingBol:
+            case HomeEndKeyStates.MovingBof:
+            case HomeEndKeyStates.MovingEol:
+            case HomeEndKeyStates.MovingEow:
+            case HomeEndKeyStates.MovingEof:
+            default:
+                console.log(`${method}::Unexpected state ${HomeEndKeyStates[Brief._homeEndKeyState]}. Leaving as is`);
+                break;
+        }
+
+        console.log(`${method}::${gesture}posAfter=${JSON.stringify(editor.selection.active)}`);
     }
 
     public static onDidChangeTextEditorSelection(e: vscode.TextEditorSelectionChangeEvent) {
@@ -402,12 +408,6 @@ export class Brief {
         var before = editor.selection.active;
 
         vscode.commands.executeCommand('cursorBottom');
-
-        // var origin = new vscode.Position(editor.document.lineCount - 1, 0);
-        // editor.selection = new vscode.Selection(origin, origin);
-        // await vscode.commands.executeCommand('cursorMove', { to: 'wrappedLineEnd' });
-
-        // editor.revealRange(new vscode.Range(editor.selection.active, editor.selection.active));
 
         var after = editor.selection.active;
         var hasChanged = !before.isEqual(after);
