@@ -52,10 +52,10 @@ function JoinCommand($cmd) {
         $cmd.Command
     }
 }
-function L($w) {
+function Left($w) {
     '-' * $w
 }
-function C($w) {
+function Center($w) {
     $w -= 2
     if ($w -lt 0) {
         $w = 1
@@ -71,9 +71,13 @@ $widthCodewright = " Codewright".Length
 $widthPersonal = " Personal".Length
 $widthNotes = ( $commands | ForEach-Object { $_.Notes } | Measure-Object Length -Maximum ).Maximum
 
+function AddHeader($s) {
+    $($s.PadRight($widthCommand))
+}
+
 $header = @"
 |$('Command'.PadRight($widthCommand))|$('Status'.PadRight($widthStatus))|$('Description'.PadRight($widthDesc))|$('Brief'.PadRight($widthBrief))|$('Codewright'.PadRight($widthCodewright))|$('Personal'.PadRight($widthPersonal))|$('Notes'.PadRight($widthNotes))|
-|$(L($widthCommand))|$(C($widthStatus))|$(L($widthDesc))|$(C($widthBrief))|$(C($widthCodewright))|$(C($widthPersonal))|$(L($widthNotes))|
+|$(Left($widthCommand))|$(Center($widthStatus))|$(Left($widthDesc))|$(Center($widthBrief))|$(Center($widthCodewright))|$(Center($widthPersonal))|$(Left($widthNotes))|
 "@
 
 $content = @()
@@ -87,7 +91,13 @@ foreach ($command in ($commands | Sort-Object -Property Category, Command, Modif
         $content += "`n### $category"
         $content += $header
     }
-    $content += "|$((JoinCommand $command).PadRight($widthCommand,' '))|$((MapStatus $command.Status).PadRight($widthStatus,' '))|$($command.Description.PadRight($widthDesc,' '))|$((MapAvailability $command.Brief).PadRight($widthBrief,' '))|$((MapAvailability $command.Codewright).PadRight($widthCodewright,' '))|$((MapAvailability $command.Personal).PadRight($widthPersonal,' '))|$($command.Notes.PadRight($widthNotes,' '))|"
+    $content += "|$((JoinCommand $command).PadRight($widthCommand,' '))" +
+        "|$((MapStatus $command.Status).PadRight($widthStatus,' '))" +
+        "|$($command.Description.PadRight($widthDesc,' '))" +
+        "|$((MapAvailability $command.Brief).PadRight($widthBrief,' '))" +
+        "|$((MapAvailability $command.Codewright).PadRight($widthCodewright,' '))" +
+        "|$((MapAvailability $command.Personal).PadRight($widthPersonal,' '))" +
+        "|$($command.Notes.PadRight($widthNotes,' '))|"
 }
 
 $content += "`n## Commands By Key"
@@ -95,7 +105,13 @@ $content += $legend
 $content += ""
 $content += $header
 foreach ($command in ($commands | Sort-Object -Property Command, Modifiers, Description)) {
-    $content += "|$((JoinCommand $command).PadRight($widthCommand,' '))|$((MapStatus $command.Status).PadRight($widthStatus,' '))|$($command.Description.PadRight($widthDesc,' '))|$((MapAvailability $command.Brief).PadRight($widthBrief,' '))|$((MapAvailability $command.Codewright).PadRight($widthCodewright,' '))|$((MapAvailability $command.Personal).PadRight($widthPersonal,' '))|$($command.Notes.PadRight($widthNotes,' '))|"
+    $content += "|$((JoinCommand $command).PadRight($widthCommand,' '))" +
+        "|$((MapStatus $command.Status).PadRight($widthStatus,' '))" +
+        "|$($command.Description.PadRight($widthDesc,' '))" +
+        "|$((MapAvailability $command.Brief).PadRight($widthBrief,' '))" +
+        "|$((MapAvailability $command.Codewright).PadRight($widthCodewright,' '))" +
+        "|$((MapAvailability $command.Personal).PadRight($widthPersonal,' '))" +
+        "|$($command.Notes.PadRight($widthNotes,' '))|"
 }
 
 #$content = ($content -join "`n")
