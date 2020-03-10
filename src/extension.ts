@@ -407,7 +407,11 @@ export class Brief {
 
         var before = editor.selection.active;
 
-        vscode.commands.executeCommand('cursorBottom');
+        var lastLine = new vscode.Position(editor.document.lineCount - 1, 0);
+        editor.selection = new vscode.Selection(lastLine, lastLine);
+        editor.revealRange(new vscode.Range(lastLine, lastLine));
+
+        this._moveToEndOfCurrentLine(editor);
 
         var after = editor.selection.active;
         var hasChanged = !before.isEqual(after);
