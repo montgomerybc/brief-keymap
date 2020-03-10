@@ -17,12 +17,19 @@ async function move(line: number, column: number, editor: vscode.TextEditor = nu
     const position = new vscode.Position(line, column);
     editor.selection = new vscode.Selection(position, position);
 
-    await vscode.commands.executeCommand('revealLine', { lineNumber: line-5, at: 'top' });
+    await vscode.commands.executeCommand('revealLine', { lineNumber: line - 5, at: 'top' });
 }
 
-suite("Home Tests", () => {
+class Bogus {
+    timeout(t: number) { }
+}
+
+// Use this to disable tests below.  i.e. rename test to xtest
+function xtest(a: any, b: any): Bogus { return new Bogus(); }
+
+suite("Home/End Tests", () => {
     setup((done) => {
-        console.log("Home Tests/setup");
+        console.log("Home/End Tests/setup");
 
         closeAll().then(() => {
             vscode.workspace.openTextDocument(testDocument).then(
@@ -41,12 +48,12 @@ suite("Home Tests", () => {
     });
 
     teardown(async () => {
-        console.log("Home Tests/teardown");
+        console.log("Home/End Tests/teardown");
         await closeAll();
     });
 
     test("Pressing <HOME> once, moves to beginning of line", async () => {
-        console.log("Home Tests/Pressing <HOME> once, moves to beginning of lineup");
+        console.log("Home Tests/Pressing <HOME> once, moves to beginning of line");
 
         await move(402, 192);
 
@@ -64,6 +71,7 @@ suite("Home Tests", () => {
 
         await move(402, 192);
 
+        //TODO: utility method to get all the useful bits (current pos, current window)
         var windowPosBefore = (vscode.window.activeTextEditor as any).visibleRanges[0];
 
         await myExtension.Brief.home();
