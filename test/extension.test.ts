@@ -155,7 +155,7 @@ suite("Home/End Tests", () => {
 
     async function closeAll(): Promise<void> {
         console.log(`Home Tests/closeAll vscode.window.visibleTextEditors.length=${vscode.window.visibleTextEditors.length}`);
-        return new Promise((c, e) => {
+        return new Promise<void>((c, e) => {
             if (vscode.window.visibleTextEditors.length === 0) {
                 return c();
             }
